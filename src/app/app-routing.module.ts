@@ -3,11 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 
-const routes: Routes = [{ path: 'bankAccount', loadChildren: () => import('./bank-account/bank-account.module').then(m => m.BankAccountModule) },
-{ path: 'user', loadChildren: () => import('./user/user.module').then(m => m.UserModule) },
-{ path: 'credits', loadChildren: () => import('./credits/credits.module').then(m => m.CreditsModule) },
-{ path: 'forum', loadChildren: () => import('./forum/forum.module').then(m => m.ForumModule) },
-{ path: 'offer', loadChildren: () => import('./offer/offer.module').then(m => m.OfferModule) },
+const routes: Routes = [{ path: 'admin', loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule) },
+{ path: 'client', loadChildren: () => import('./client/client.module').then(m => m.ClientModule) },
 { path: '', component: HomeComponent },
 { path: '**', component: NotFoundComponent },
 ];
