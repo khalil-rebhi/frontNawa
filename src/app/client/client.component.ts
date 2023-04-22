@@ -9,7 +9,8 @@ import { link } from 'fs';
 export class ClientComponent implements OnInit {
 
   readonly styles:string[] = [
-    "/assets/client/css/bootstrap.css",
+    "https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css",
+    "/assets/client/css/client-bootstrap.css",
     "/assets/client/css/style.css",
     "/assets/client/css/reset.css",
     "/assets/client/css/custom.css",
