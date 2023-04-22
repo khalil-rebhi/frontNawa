@@ -6,7 +6,7 @@ import { PayementComponent } from './payement.component';
 import { AddPayementComponent } from './add-payement/add-payement.component';
 import { FormsModule } from '@angular/forms';
 import { PayCreditComponent } from './pay-credit/pay-credit.component';
-
+import { NotifierModule } from 'angular-notifier';
 
 @NgModule({
   declarations: [
@@ -17,7 +17,8 @@ import { PayCreditComponent } from './pay-credit/pay-credit.component';
   imports: [
     CommonModule,
     PayementRoutingModule,
-    FormsModule
+    FormsModule,
+    NotifierModule
   ]
 })
 export class PayementModule { }
