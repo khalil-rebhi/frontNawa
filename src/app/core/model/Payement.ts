@@ -3,4 +3,5 @@ export class Payement{
     amount : number;
     payementDate : Date;
     paymentMethod: string;
+    score: number ;
 }

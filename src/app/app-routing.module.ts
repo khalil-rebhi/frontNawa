@@ -8,6 +8,7 @@ const routes: Routes = [{ path: 'bankAccount', loadChildren: () => import('./ban
 { path: 'credits', loadChildren: () => import('./credits/credits.module').then(m => m.CreditsModule) },
 { path: 'forum', loadChildren: () => import('./forum/forum.module').then(m => m.ForumModule) },
 { path: 'offer', loadChildren: () => import('./offer/offer.module').then(m => m.OfferModule) },
+{ path: 'payement', loadChildren: () => import('./payement/payement.module').then(m => m.PayementModule) },
 { path: '', component: HomeComponent },
 { path: '**', component: NotFoundComponent },
 ];
