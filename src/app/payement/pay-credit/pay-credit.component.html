@@ -1,0 +1,188 @@
+<!-- <form (ngSubmit)="Pay(transfer,user)" #form ="ngForm"> 
+    <div class="form-group" >
+<label> senderAccountNumber</label>
+<input type ="text" class="form-control" name ="senderAccountNumber" [(ngModel)]="transfer.senderAccountNumber" required minlength="3" #senderAccountNumber = "ngModel">
+<div *ngIf="senderAccountNumber.touched && senderAccountNumber.invalid">
+<div class="alert alert-danger" *ngIf="senderAccountNumber.errors?.['required']" >title is not required</div>
+<div class="alert alert-danger" *ngIf="senderAccountNumber.errors?.['minlength']" >title is less than 3</div>
+</div>
+</div>
+
+        <div class="form-group" >
+        <label> receiverAccountNumber</label>
+        <input type ="text"  name ="price" class="form-control" [(ngModel)]="transfer.receiverAccountNumber"  required  #receiverAccountNumber="ngModel">
+        <div *ngIf="receiverAccountNumber.touched && receiverAccountNumber.invalid">
+            <div class="alert alert-danger" *ngIf="receiverAccountNumber.errors?.['required']" >receiverAccountNumber is not required</div>
+
+
+            <div class="alert alert-danger" *ngIf="receiverAccountNumber.errors?.['required']" >price is not required</div>
+            
+        </div>
+        </div>
+
+        <div class="form-group" >
+            <label> prix</label>
+            <input type ="text"  name ="price" class="form-control" [(ngModel)]="transfer.amount"  required  #amount="ngModel">
+            <div *ngIf="amount.touched && amount.invalid">
+                <div class="alert alert-danger" *ngIf="amount.errors?.['required']" >amount is not required</div>
+    
+    
+                
+                
+            </div>
+            </div>
+            
+                            <button class="btn btn-primary" type="submit"[disabled]="form.invalid" > ajouter</button>
+                        </form> -->
+
+
+                        <div id="sidebar-contact" class="span3 sidebar group">
+                            <div class="widget-first widget contact-info"><h3>Contacts</h3>
+    
+                                <div class="sidebar-nav">
+                                    <ul>
+    
+                                        <li>
+                                            <i class="icon-map-marker" style="color:#000;font-size:12px;width:12px;height:12px"></i>
+                                            <span>Address:</span> Celestino, 115 Avenue - Italy
+                                        </li>
+    
+                                        <li>
+                                            <i class="icon-phone" style="color:#000;font-size:12px;width:12px;height:12px"></i>
+                                            <span>Mobile:</span> +39 3471717174
+                                        </li>
+    
+                                        <li>
+                                            <i class="icon-print" style="color:#000;font-size:12px;width:12px;height:12px"></i>
+                                            <span>Fax:</span> +39 0035 356 765
+                                        </li>
+    
+                                        <li>
+                                            <i class="icon-envelope" style="color:#000;font-size:12px;width:12px;height:12px"></i>
+                                            <span>Email:</span> celestino@yit.com
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+    
+                            <div class="widget-last widget last-tweets">
+    
+                                <div class="list-tweets-2"></div>
+                                <p id="follow-twitter">
+                                    <a href="https://twitter.com/intent/user?screen_name=yit" target="_blank">
+                                        Follow us on Twitter →
+                                    </a>
+                                </p>
+                            </div>
+                        </div>
+
+    
+    <div class="slogan">
+        <h2>SAY HELLO. PAY YOUR CREDIT</h2>
+
+        <h3>seriously.</h3>
+    </div>
+
+
+
+                        <div id="primary" class="sidebar-left">
+                            <div class="container group">
+                                <div class="row">
+                                    <!-- START CONTENT -->
+                                    <div id="content-page" class="span9 content group">
+                                            <div class="page type-page status-publish hentry group">
+                                    <form class="contact-form row" (ngSubmit)="Pay(transfer,user)" #form ="ngForm">
+                
+                                        <div class="usermessagea"></div>
+                                        <fieldset>
+                
+                                            <ul>
+                
+                                                <li class="text-field with-icon span3">
+                
+                                                    <label for="name-contact-form" style="display: none;">
+                                                        <span class="mainlabel">sender Account Number</span>
+                                                    </label>
+
+
+                                                   
+
+
+                
+                                                    <div class="input-prepend"><span class="add-on">
+                                                        <img src="./assets/images/contact-form/user.png" alt="" title="" /></span>
+                                                        <!-- <label> senderAccountNumber</label> -->
+                                                        <input type="text" name="yit_contact[name]" id="name-contact-form" class="with-icon required" value="" [(ngModel)]="transfer.senderAccountNumber" required minlength="3" #senderAccountNumber = "ngModel" />
+                                                        <div *ngIf="senderAccountNumber.touched && senderAccountNumber.invalid">
+                                                            <div class="alert alert-danger" *ngIf="senderAccountNumber.errors?.['required']" >title is not required</div>
+                                                            <div class="alert alert-danger" *ngIf="senderAccountNumber.errors?.['minlength']" >title is less than 3</div>
+                                                            </div>
+                                                    </div>
+                
+                                                    <div class="msg-error"></div>
+                
+                                                    <div class="clear"></div>
+                                                </li>
+                
+                                                <li class="text-field with-icon span3">
+                
+                                                    <label for="email-contact-form" style="display: none;">
+                                                        <span class="mainlabel">receiver Account Number</span>
+                                                    </label>
+                    
+                                                    <div class="input-prepend">
+                                                        <span class="add-on">
+                                                            <img src="./assets/images/contact-form/envelope.png" alt="" title="" />
+                                                        </span>
+                                                        <!-- <label> senderAccountNumber</label> -->
+                                                        <input type="text" name="yit_contact[email]" id="email-contact-form" class="with-icon required email-validate" value=""  [(ngModel)]="transfer.receiverAccountNumber"  required  #receiverAccountNumber="ngModel" />
+                                                    </div>
+                
+                                                    <div class="msg-error"></div>
+                
+                                                    <div class="clear"></div>
+                                                </li>
+                
+                                                <li class="text-field with-icon span3">
+                
+                                                    <label for="phone-contact-form" style="display: none;">
+                                                        <span class="mainlabel">Amount</span>
+                                                    </label>
+                
+                                                    <div class="input-prepend">
+                                                        <span class="add-on">
+                                                            <img src="./assets/images/contact-form/phone.png" alt="" title="" />
+                                                        </span>
+                                                        <!-- <label> senderAccountNumber</label> -->
+                                                        <input type="text" name="yit_contact[phone]" id="phone-contact-form" class="with-icon" value="" [(ngModel)]="transfer.amount"  required  #amount="ngModel" />
+                                                    </div>
+                
+                                                    <div class="msg-error"></div>
+                
+                                                    <div class="clear"></div>
+                                                </li>
+                
+                                                <!-- <li class="textarea-field with-icon span9">
+                
+                                                    <label for="message-contact-form">
+                                                        <span class="mainlabel">Message</span>
+                                                    </label>
+                
+                                                    <div class="input-prepend">
+                                                        <span class="add-on">
+                                                            <img src="images/contact-form/pencil.png" alt="" title="" />
+                                                        </span>
+                                                        <textarea name="yit_contact[message]" id="message-contact-form" rows="8" cols="30" class="with-icon required"></textarea>
+                                                    </div>
+                
+                                                    <div class="msg-error"></div>
+                
+                                                    <div class="clear"></div>
+                                                </li> -->
+                
+                                                <button class="btn class-primary" type="submit"[disabled]="form.invalid" > ajouter</button>
+                                            </ul>
+                                        </fieldset>
+                                    </form>
+
+                                
