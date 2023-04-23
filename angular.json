@@ -105,5 +105,7 @@
       }
     }
   },
-  "defaultProject": "frontNawa"
+  "cli": {
+    "analytics": false
+  }
 }
