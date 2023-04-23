@@ -63,11 +63,6 @@ export class ClientComponent implements OnInit {
       this.renderer.setAttribute(linkElement, 'href', element);
       this.renderer.appendChild(document.head, linkElement);
     });
-    const linkElement = this.renderer.createElement('link');
-    this.renderer.setAttribute(linkElement,"rel",'stylesheet');
-    this.renderer.setAttribute(linkElement,"integrity","sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC");
-    this.renderer.setAttribute(linkElement,"crossorigin",'anonymous');
-    this.renderer.setAttribute(linkElement,"href","https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css");
     this.js.forEach(element => {
       const linkElement = this.renderer.createElement('script');
       this.renderer.setAttribute(linkElement, 'src', element);
