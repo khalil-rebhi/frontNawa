@@ -7,6 +7,7 @@ import { Payement } from '../model/Payement';
   providedIn: 'root'
 })
 export class TestService {
+  paiements: any[];
 
   constructor(private http:HttpClient) { }
  
@@ -19,4 +20,9 @@ export class TestService {
  addProduct(payement : Payement) {
   return this.http.post('http://localhost:8089/nawa/pay/save', payement)
 }
+
+deleteProduct(idProduct : any){
+  return  this.http.delete(`http://localhost:8089/nawa/pay/delete/${idProduct}`)
+}
+
 }

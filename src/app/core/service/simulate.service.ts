@@ -10,8 +10,8 @@ export class SimulateService {
 
   constructor(private http:HttpClient) { }
 
-  public getCredits() : Observable<Credit[]> {
-     return this.http.get<Credit[]>('http://localhost:8089/nawa/credit/show') ;
+  public simulate(credit:Credit) {
+     return this.http.post('http://localhost:8089/nawa/pay/simulate',credit) ;
     
   }
 }

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PayementService } from '../core/service/payement.service';
 import { Payement } from '../core/model/Payement';
 import { TestService } from '../core/service/test.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-payement',
@@ -14,7 +15,7 @@ export class PayementComponent implements OnInit {
   payement !: Payement ;
   form : boolean = false;
   
-  constructor(private service:TestService) { }
+  constructor(private service:TestService,private router:Router) { }
 
   ngOnInit(): void {
     this.payement = new Payement();
@@ -25,6 +26,14 @@ export class PayementComponent implements OnInit {
       
       
   }
+
+  deleteProduct(idProduct : any){
+    this.service.deleteProduct(idProduct).subscribe(() => {this.router.navigateByUrl('/admin');
+     
+  })
+  }
+
+ 
   
 
 }

@@ -16,10 +16,10 @@ export class CreditsComponent implements OnInit {
   constructor(private service:SimulateService) { }
 
   ngOnInit(): void {
-    this.credit = new Credit ();
+    // this.credit = new Credit ();
     
-    this.service.getCredits().subscribe(res=>{console.log(res);
-      this.listCredit=res});
+    // this.service.getCredits().subscribe(res=>{console.log(res);
+    //   this.listCredit=res});
   }
 
 }
