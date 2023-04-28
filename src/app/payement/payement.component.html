@@ -94,7 +94,7 @@
         
         
     <tr role="row" class="odd" *ngFor="let paiement of listPayement">
-        <td>{{ paiement.idPayement }}
+        <td>{{ paiement.user.firstName }}
         <td>{{ paiement.amount }}</td>
         <td>{{ paiement.payementDate | date:'dd/MM/yyyy' }}</td>
         <td>{{ paiement.score }}</td>
@@ -102,7 +102,7 @@
           
            
 
-            <button (click)="deleteProduct(paiement.idPayement)" class="btn btn-dark mb-2" style="background-color: rgba(250, 189, 184, 0.929);">Supprimer</button>
+            <button (click)="deleteProduct(paiement)" class="btn btn-dark mb-2" style="background-color: rgba(250, 189, 184, 0.929);">Supprimer</button>
           </td>
           <td>
           
@@ -116,7 +116,7 @@
         <tr><th rowspan="1" colspan="1">Name</th><th rowspan="1" colspan="1">Position</th><th rowspan="1" colspan="1">Office</th><th rowspan="1" colspan="1">Age</th><th rowspan="1" colspan="1">Start date</th><th rowspan="1" colspan="1">Salary</th></tr>
     </tfoot> -->
 </table>
-<router-outlet></router-outlet>
+
 <notifier-container></notifier-container>
 
     
