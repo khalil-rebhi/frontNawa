@@ -3,15 +3,31 @@ import { CommonModule } from '@angular/common';
 
 import { OfferRoutingModule } from './offer-routing.module';
 import { OfferComponent } from './offer.component';
+import { ListOfferComponent } from './list-offer/list-offer.component';
+import { OfferRequestComponent } from './offer-request/offer-request.component';
+import { FormsModule } from '@angular/forms';
+import { ListOfferAdminComponent } from './list-offer-admin/list-offer-admin.component';
+import { DetailsComponent } from './details/details.component';
+import { FormAdminComponent } from './form-admin/form-admin.component';
+import { EditFormComponent } from './edit-form/edit-form.component';
+import { ConfirmRequestComponent } from './confirm-request/confirm-request.component';
 
 
 @NgModule({
   declarations: [
-    OfferComponent
-  ],
+    OfferComponent,
+    ListOfferComponent,
+    OfferRequestComponent,
+    ListOfferAdminComponent,
+    DetailsComponent,
+    FormAdminComponent,
+    EditFormComponent,
+    ConfirmRequestComponent
+    ],
   imports: [
     CommonModule,
-    OfferRoutingModule
+    OfferRoutingModule,
+    FormsModule
   ]
 })
 export class OfferModule { }

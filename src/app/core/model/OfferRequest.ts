@@ -1,3 +1,5 @@
+import { Offer } from "./Offer";
+
 export class OfferRequest {
     idOfferRequest :number;
     businessAddress : string;
@@ -5,4 +7,5 @@ export class OfferRequest {
     businessType : string;
     experience : number;
     description : string;
+    offer : Offer;
 }

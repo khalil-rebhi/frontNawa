@@ -7,18 +7,22 @@ import { RouterModule } from '@angular/router';
 import { BankAccountComponent } from './bank-account/bank-account.component';
 import { HomeComponent } from './home/home.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { HttpClientModule } from '@angular/common/http';
+import { ConfirmRequestComponent } from './offer-request/confirm-request/confirm-request.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     BankAccountComponent,
     HomeComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    ConfirmRequestComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    RouterModule
+    RouterModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

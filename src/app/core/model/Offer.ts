@@ -1,4 +1,6 @@
-export class offer {
+import { Credit } from "./Credit";
+
+export class Offer {
     idOffer: number;
     name: string;
     minAmount :number;
@@ -6,4 +8,5 @@ export class offer {
     typeOffer : string;
     isGenerated : boolean;
     demandedAmount : number;
+    credit: Credit;
 }
