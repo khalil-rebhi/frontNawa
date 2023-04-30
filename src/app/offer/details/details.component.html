@@ -1,0 +1,89 @@
+<div style="padding: 5px ;">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-4 col-xl-3">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="media align-items-center mb-4">
+                            <button type="button" routerLink="/admin/offer" class="btn btn-outline-info">Go back to list.</button>
+                        </div>
+                        <div class="media align-items-center mb-4">
+                            <div class="media-body">
+                                <h3 class="mb-0">{{ offer.name }}</h3>
+                                <p class="text-muted mb-0" *ngIf="offer.isGenerated">Standard offer</p>
+                                <p class="text-muted mb-0" *ngIf="!offer.isGenerated">Custom offer</p>
+                            </div>
+                        </div>
+                        
+                        <div class="row mb-5">
+                            <div class="col">
+                                <div class="card card-profile text-center">
+                                    <span class="mb-1 text-primary"><i class="fa-solid fa-file"></i></span>
+                                    <h3 class="mb-0">{{ offerRequests.length }}</h3>
+                                    <p class="text-muted px-4">Request</p><p *ngIf="offerRequests.length > 1">s</p>
+                                </div>
+                            </div>
+                            <div class="col-12 text-center">
+                                <button class="btn btn-danger px-5" [disabled]="offer.isGenerated">Edit</button>
+                            </div>
+                        </div>
+
+                        <h4>Offer type</h4>
+                        <p class="text-muted">{{ offer.typeOffer }}</p>
+                    </div>
+                </div>  
+            </div>
+            <div class="col-lg-8 col-xl-9">
+                <div class="card">
+                    <div class="card-body">
+                        <ul class="card-profile__info">
+                            <li class="mb-1"><strong class="text-dark mr-4">Minimum amount</strong> <span>{{ offer.minAmount }} Dt</span></li>
+                            <li class="mb-1"><strong class="text-dark mr-4">Maximum amount</strong> <span>{{ offer.maxAmount }} Dt</span></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card border-dark">
+                    <h5 class="card-title" style="margin: 2rem 0 0 2rem;">
+                        Suggested credit
+                    </h5>
+                    <div class="card-body">
+                        <ul class="card-profile__info">
+                            <li class="mb-1"><strong class="text-dark mr-4">Credit amount</strong> <span>{{ offer.credit.amount }} Dt</span></li>
+                            <li class="mb-1"><strong class="text-dark mr-4">Credit duration</strong> <span>{{ offer.credit.duration }} months</span></li>
+                            <li class="mb-1"><strong class="text-dark mr-4">Interest rate</strong> <span>{{ offer.credit.interestRate }} %</span></li>
+                            <li class="mb-1"><strong class="text-dark mr-4">Acceptance date</strong> <span>{{ offer.credit.acceptDate }} </span></li>
+                            <li class="mb-1"><strong class="text-dark mr-4">Start date</strong> <span>{{ offer.credit.creditStartDate }} </span></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card">
+                    <h5 class="card-title" style="margin: 2rem 0 0 2rem;">Offer requests</h5>
+                    <div class="card-body">
+                        <div class="media" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);padding: 8px;" *ngFor="let request of offerRequests">
+                            <div class="media-body">
+                                <div class="d-sm-flex justify-content-between mb-2">
+                                    <h5 class="mb-sm-0">Business address<small class="text-muted ml-3">{{ request.businessAddress }}</small></h5>
+                                </div>
+                                <div class="d-sm-flex justify-content-between mb-2">
+                                    <h5 class="mb-sm-0">State<small class="text-muted ml-3">{{ request.gouvernorat }}</small></h5>
+                                </div>
+                                <div class="d-sm-flex justify-content-between mb-2">
+                                    <h5 class="mb-sm-0">Business type<small class="text-muted ml-3">{{ request.businessType }}</small></h5>
+                                </div>
+                                <div class="d-sm-flex justify-content-between mb-2">
+                                    <h5 class="mb-sm-0">Experience<small class="text-muted ml-3">{{ request.experience }} years</small></h5>
+                                </div>
+                                <div class="d-sm-flex justify-content-between mb-2">
+                                    <h5 class="mb-sm-0">Description<small class="text-muted ml-3">{{ request.description }}</small></h5>
+                                </div>
+                                
+                        </div>
+                    </div>
+                    
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- #/ container -->
+</div>
