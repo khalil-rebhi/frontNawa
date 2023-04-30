@@ -114,8 +114,8 @@
                                                         <!-- <label> senderAccountNumber</label> -->
                                                         <input type="text" name="yit_contact[name]" id="name-contact-form" class="with-icon required" value="" [(ngModel)]="transfer.senderAccountNumber" required minlength="3" #senderAccountNumber = "ngModel" />
                                                         <div *ngIf="senderAccountNumber.touched && senderAccountNumber.invalid">
-                                                            <div class="alert alert-danger" *ngIf="senderAccountNumber.errors?.['required']" >title is not required</div>
-                                                            <div class="alert alert-danger" *ngIf="senderAccountNumber.errors?.['minlength']" >title is less than 3</div>
+                                                            <div class="alert alert-danger" *ngIf="senderAccountNumber.errors?.['required']" >rib is not required</div>
+                                                            <div class="alert alert-danger" *ngIf="senderAccountNumber.errors?.['minlength']" >rib is less than 20</div>
                                                             </div>
                                                     </div>
                 

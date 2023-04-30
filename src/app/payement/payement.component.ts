@@ -11,35 +11,19 @@ import { Router } from '@angular/router';
  // providers : [PayementService]
 })
 export class PayementComponent implements OnInit {
-  listPayement : Payement[] = [] ;
-  payement !: Payement ;
-  form : boolean = false;
+ 
   
-  constructor(private service:TestService,private router:Router) { }
+  constructor() { }
 
   ngOnInit(): void {
-    this.payement = new Payement();
-    
-    this.service.getAllpayements().subscribe(res=>{console.log(res);
-      this.listPayement=res});
+   
 
       
       
   }
 
-  // deleteProduct(idProduct : any){
-  //   this.service.deleteProduct(idProduct).subscribe(() => {this.router.navigateByUrl('/admin/payement');
-     
-  // })
 
-   deleteProduct(payement : Payement){
-     this.service.deleteProduct(payement.idPayement).subscribe(res => {
-      let index = this.listPayement.indexOf(payement);
-      this.listPayement.splice(index,1);
-     
-   });
-
-  }
+   
 
  
   

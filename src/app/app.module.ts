@@ -13,12 +13,15 @@ import { FormsModule } from '@angular/forms';
 import { NotifierModule } from 'angular-notifier';
 
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
     BankAccountComponent,
     HomeComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    
    
   ],
   imports: [

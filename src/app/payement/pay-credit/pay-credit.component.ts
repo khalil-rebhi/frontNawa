@@ -4,6 +4,9 @@ import { PayCreditService } from 'src/app/core/service/pay-credit.service';
 import { Router } from '@angular/router';
 import { User } from 'src/app/core/model/User';
 import { NotifierService } from 'angular-notifier'
+import { HttpErrorResponse } from '@angular/common/http';
+import { PayCreditResponse } from 'src/app/inetfaces/pay-credit-response';
+
 @Component({
   selector: 'app-pay-credit',
   templateUrl: './pay-credit.component.html',
@@ -13,26 +16,50 @@ export class PayCreditComponent implements OnInit {
 transfer:TransferRequest ;
 user : User;
 private readonly notifier: NotifierService;
+response:PayCreditResponse ;
 
 
-  constructor(private service:PayCreditService ,private router:Router,notifierService: NotifierService) {
+
+
+  constructor(private service:PayCreditService ,private router:Router,notifierService: NotifierService ) {
     this.notifier = notifierService;
    }
 
   ngOnInit(): void {
     this.transfer = new TransferRequest();
+    
   }
 
   Pay(transfer: any,user:any){
-    if (
-    this.service.payCredit(transfer,user).subscribe(() => {this.router.navigateByUrl('');
-     
-    })){
-      this.notifier.notify('success', 'You are awesome! I mean it!');
-    }else
-    {
-      this.notifier.notify('success', 'You are awesome! I mean it!');
-    };
+   // if (
+    this.service.payCredit(transfer,user).subscribe(
+      (response: any) => {
+        // handle success response
+        console.log(response.message);
+      },
+      (error: HttpErrorResponse) => {
+        // handle error response
+        if (error.status === 400) {
+          console.log('Bad Request');
+          this.notifier.notify('warning', 'Verifier les données saisies');
+        } else if (error.status === 401) {
+          console.log('Unauthorized');
+        } else if (error.status === 404) {
+          console.log('Not Found');
+        } else {
+          console.log('Server AAAA');
+          // this.toastr.success('Hello world!', 'Toastr fun!');
+        }
+      }
+    );
+   
+    
+    
+    
+    
+    
+    
+    
   }
 
 }

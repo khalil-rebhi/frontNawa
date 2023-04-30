@@ -7,12 +7,14 @@ import { AddPayementComponent } from './add-payement/add-payement.component';
 import { FormsModule } from '@angular/forms';
 import { PayCreditComponent } from './pay-credit/pay-credit.component';
 import { NotifierModule } from 'angular-notifier';
+import { ListPayementComponent } from './list-payement/list-payement.component';
 
 @NgModule({
   declarations: [
     PayementComponent,
     AddPayementComponent,
-    PayCreditComponent
+    PayCreditComponent,
+    ListPayementComponent
   ],
   imports: [
     CommonModule,
