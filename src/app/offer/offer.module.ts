@@ -13,6 +13,7 @@ import { EditFormComponent } from './edit-form/edit-form.component';
 import { ConfirmRequestComponent } from './confirm-request/confirm-request.component';
 
 
+
 @NgModule({
   declarations: [
     OfferComponent,
@@ -28,6 +29,6 @@ import { ConfirmRequestComponent } from './confirm-request/confirm-request.compo
     CommonModule,
     OfferRoutingModule,
     FormsModule
-  ]
+    ]
 })
 export class OfferModule { }

@@ -35,7 +35,11 @@ export class OfferService {
     return this.http.put(`http://127.0.0.1:8089/nawa/offer/edit/${offer.idOffer}`,offer);
   }
 
-  generateOffer(requestOffer : OfferRequest){
-    return this.http.post(`http://127.0.0.1:8089/nawa/offer/propose/kmeans`,requestOffer);
+  generateOffer(requestOffer : OfferRequest): Observable<Offer>{
+    return this.http.post<Offer>(`http://127.0.0.1:8089/nawa/offer/propose/kmeans`,requestOffer);
+  }
+
+  confirmOffer(offer: Offer){
+    return this.http.post<Offer>(`http://127.0.0.1:8089/nawa/offer/accept`,offer);
   }
 }

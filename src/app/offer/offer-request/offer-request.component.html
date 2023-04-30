@@ -9,7 +9,7 @@
                                 <label class="col-lg-4 col-form-label" for="businessAddress">Business address
                                 </label>
                                 <div class="col-lg-6">
-                                    <input type="text" class="form-control" id="businessAddress" name="businessAddress" [(ngModel)]="offerRequest.businessAddress" #name="ngModel" placeholder="Enter your business address" required>
+                                    <input type="text" class="form-control" id="businessAddress" name="businessAddress" [(ngModel)]="offerRequest.businessAddress" #name="ngModel" placeholder="Enter your business address" required [disabled]="disable">
                                     <div *ngIf="name.touched && name.invalid">
                                         <div class="alert alert-danger" *ngIf="name.errors?.['required']">
                                             Please enter your business address
@@ -21,7 +21,7 @@
                                 <label class="col-lg-4 col-form-label" for="experience">If you have any experience please mention it.
                                 </label>
                                 <div class="col-lg-6">
-                                    <input type="number" class="form-control" id="experience" name="experience" placeholder="0" [(ngModel)]="offerRequest.experience" #experience="ngModel" required>
+                                    <input [disabled]="disable" type="number" class="form-control" id="experience" name="experience" placeholder="0" [(ngModel)]="offerRequest.experience" #experience="ngModel" required>
                                     <div *ngIf="experience.touched">
                                         <div class="alert alert-danger" *ngIf="experience.errors?.['required']">
                                             Please enter your experience.
@@ -33,7 +33,7 @@
                                 <label class="col-lg-4 col-form-label" for="amount">How much do you expect your project needs?
                                 </label>
                                 <div class="col-lg-6">
-                                    <input type="number" class="form-control" id="amount" name="amount" placeholder="0" [(ngModel)]="offerRequest.offer.demandedAmount" #amount="ngModel" required>
+                                    <input [disabled]="disable" type="number" class="form-control" id="amount" name="amount" placeholder="0" [(ngModel)]="offerRequest.offer.demandedAmount" #amount="ngModel" required>
                                     <div *ngIf="amount.touched">
                                         <div class="alert alert-danger" *ngIf="amount.errors?.['required']">
                                             Please enter your amount.
@@ -45,7 +45,7 @@
                                 <label class="col-lg-4 col-form-label" for="duration">After how many months you can pay your credit?
                                 </label>
                                 <div class="col-lg-6">
-                                    <input type="number" class="form-control" id="duration" name="duration" placeholder="0" [(ngModel)]="offerRequest.offer.credit.duration" #duration="ngModel" required>
+                                    <input [disabled]="disable" type="number" class="form-control" id="duration" name="duration" placeholder="0" [(ngModel)]="offerRequest.offer.credit.duration" #duration="ngModel" required>
                                     <div *ngIf="duration.touched">
                                         <div class="alert alert-danger" *ngIf="duration.errors?.['required']">
                                             Please enter your duration.
@@ -57,7 +57,7 @@
                                 <label class="col-lg-4 col-form-label" for="interestRate">Approximativly how much interest rate you think it's convenable?
                                 </label>
                                 <div class="col-lg-6">
-                                    <input type="number" class="form-control" id="interestRate" name="interestRate" placeholder="0" [(ngModel)]="offerRequest.offer.credit.interestRate" #interestRate="ngModel" required>
+                                    <input [disabled]="disable" type="number" class="form-control" id="interestRate" name="interestRate" placeholder="0" [(ngModel)]="offerRequest.offer.credit.interestRate" #interestRate="ngModel" required>
                                     <div *ngIf="interestRate.touched">
                                         <div class="alert alert-danger" *ngIf="interestRate.errors?.['required']">
                                             Please enter your interestRate.
@@ -69,7 +69,7 @@
                                 <label class="col-lg-4 col-form-label" for="minAmount">How much the minimum amount you expect to get?
                                 </label>
                                 <div class="col-lg-6">
-                                    <input type="number" class="form-control" id="minAmount" name="minAmount" placeholder="0" [(ngModel)]="offerRequest.offer.minAmount" #min="ngModel" required>
+                                    <input [disabled]="disable" type="number" class="form-control" id="minAmount" name="minAmount" placeholder="0" [(ngModel)]="offerRequest.offer.minAmount" #min="ngModel" required>
                                     <div *ngIf="min.touched && min.invalid">
                                         <div class="alert alert-danger" *ngIf="min.errors?.['required']">
                                             Please enter the minimum amount.
@@ -81,7 +81,7 @@
                                 <label class="col-lg-4 col-form-label" for="maxAmount">How much the maximum amount you expect to get?
                                 </label>
                                 <div class="col-lg-6">
-                                    <input type="number" class="form-control" id="maxAmount" name="maxAmount" placeholder="0" [(ngModel)]="offerRequest.offer.maxAmount" #max="ngModel" required>
+                                    <input [disabled]="disable" type="number" class="form-control" id="maxAmount" name="maxAmount" placeholder="0" [(ngModel)]="offerRequest.offer.maxAmount" #max="ngModel" required>
                                     <div *ngIf="max.touched">
                                         <div class="alert alert-danger" *ngIf="max.errors?.['required']">
                                             Please enter the maximum amount.
@@ -93,18 +93,73 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label class="col-lg-4 col-form-label" for="offerRequestType">What's your business type?
+                                <label class="col-lg-4 col-form-label" for="gouvernorat">Which gouvernorat you live at?
                                 </label>
                                 <div class="col-lg-6">
-                                    <select class="form-control" id="offerRequestType" name="offerRequestType" [(ngModel)]="offerRequest.offer.typeOffer">
-                                        <option value="INDUSTRIAL_CREDIT">Industrial credit</option>
-                                        <option value="AGRICULTURE_CREDIT">Agriculture credit</option>
-                                        <option value="EDUCATION_CREDIT">Education credit</option>
+                                    <select [disabled]="disable" class="form-control" id="gouvernorat" name="gouvernorat" [(ngModel)]="offerRequest.gouvernorat">
+                                        <option value="ARIANA">ARIANA</option>
+                                        <option value="BEJA">BEJA</option>
+                                        <option value="BEN_AROUS">BEN AROUS</option>
+                                        <option value="BIZERTE">BIZERTE</option>
+                                        <option value="GABES">GABES</option>
+                                        <option value="GAFSA">GAFSA</option>
+                                        <option value="JENDOUBA">JENDOUBA</option>
+                                        <option value="KAIROUAN">KAIROUAN</option>
+                                        <option value="KASSERINE">KASSERINE</option>
+                                        <option value="KEF">KEF</option>
+                                        <option value="MAHDIA">MEHDIA</option>
+                                        <option value="MANOUBA">MANOUBA</option>
+                                        <option value="MEDENINE">MEDNINE</option>
+                                        <option value="MONASTIR">MONASTIR</option>
+                                        <option value="NABEUL">NABEUL</option>
+                                        <option value="SFAX">SFAX</option>
+                                        <option value="SIDI_BOUZID">SIDI BOUZID</option>
+                                        <option value="SILIANA">SILIANA</option>
+                                        <option value="SOUSSE">SOUSSE</option>
+                                        <option value="TATAOUINE">TATAOUINE</option>
+                                        <option value="TOZEUR">TOZEUR</option>
+                                        <option value="TUNIS">TUNIS</option>
+                                        <option value="ZAGHOUAN">ZAGHOUANE</option>
                                     </select>
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <div class="col-lg-8 ml-auto">
+                                <label class="col-lg-4 col-form-label" for="businessType">Describe your bussiness.
+                                </label>
+                                <div class="col-lg-6">
+                                    <input [disabled]="disable" type="text" class="form-control" id="businessType" name="businessType" placeholder="0" [(ngModel)]="offerRequest.businessType" #businessType="ngModel" required>
+                                    <div *ngIf="businessType.touched">
+                                        <div class="alert alert-danger" *ngIf="businessType.errors?.['required']">
+                                            Please enter the maximum amount.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-lg-4 col-form-label" for="description">Do you have something to add?
+                                </label>
+                                <div class="col-lg-6">
+                                    <textarea [disabled]="disable" type="text" class="form-control" id="description" name="description" placeholder="You can describe your project here" [(ngModel)]="offerRequest.description" #description="ngModel" cols="30" rows="10"></textarea>
+                                        <div *ngIf="description.touched">
+                                        <div class="alert alert-danger" *ngIf="description.errors?.['required']">
+                                            Please enter the maximum amount.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-lg-4 col-form-label" for="offerRequestType">In what field you consider your project belongs?
+                                </label>
+                                <div class="col-lg-6">
+                                    <select [disabled]="disable" class="form-control" id="offerRequestType" name="offerRequestType" [(ngModel)]="offerRequest.offer.typeOffer">
+                                        <option value="INDUSTRIAL_CREDIT">Industrial</option>
+                                        <option value="AGRICULTURE_CREDIT">Agriculture</option>
+                                        <option value="EDUCATION_CREDIT">Education</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group row" *ngIf="!disable">
+                                <div class="col-lg-8 ml-auto text-center">
                                     <button type="button" routerLink="/admin/offerRequest" class="btn btn-danger">Cancel</button>
                                     <button type="submit" class="btn btn-primary" [disabled]="form.invalid">Submit</button>
                                 </div>
@@ -115,4 +170,7 @@
             </div>
         </div>
     </div>
+</div>
+<div *ngIf="generatedOffer">
+    <app-confirm-request [offer]="generatedOffer"></app-confirm-request>
 </div>

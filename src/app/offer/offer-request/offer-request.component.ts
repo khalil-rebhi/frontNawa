@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { of } from 'rxjs';
 import { Credit } from 'src/app/core/model/Credit';
 import { Offer } from 'src/app/core/model/Offer';
@@ -14,8 +15,9 @@ export class OfferRequestComponent implements OnInit {
 
   offerRequest : OfferRequest;
   generatedOffer : Offer;
+  disable :boolean = false;
 
-  constructor(private offerService:OfferService) { }
+  constructor(private offerService:OfferService, private router:Router) { }
 
   ngOnInit(): void {
     this.offerRequest = new OfferRequest();
@@ -27,8 +29,8 @@ export class OfferRequestComponent implements OnInit {
     console.log(this.offerRequest);
     this.offerRequest.idOfferRequest = 0;
     this.offerService.generateOffer(this.offerRequest).subscribe(result => {
-      console.log(result);
-      //this.generatedOffer = result;
+      this.generatedOffer = result;
+      this.disable = true;
     });
     
   }

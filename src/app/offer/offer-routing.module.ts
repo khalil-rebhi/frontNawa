@@ -8,6 +8,7 @@ import { ListOfferAdminComponent } from './list-offer-admin/list-offer-admin.com
 import { DetailsComponent } from './details/details.component';
 import { FormAdminComponent } from './form-admin/form-admin.component';
 import { EditFormComponent } from './edit-form/edit-form.component';
+import { ConfirmRequestComponent } from './confirm-request/confirm-request.component';
 
 const routes: Routes = [{ path : '', component:OfferComponent, children:[
   {path:"",component:ListOfferAdminComponent},
@@ -16,6 +17,7 @@ const routes: Routes = [{ path : '', component:OfferComponent, children:[
   {path:"offers/request",component:OfferRequestComponent},
   {path: "new", component:FormAdminComponent},
   {path: "edit/:id", component:EditFormComponent},
+  {path: 'confirmation', component:ConfirmRequestComponent},
   {path:"**",component:NotFoundComponent}
 ]}];
 
