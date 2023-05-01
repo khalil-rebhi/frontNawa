@@ -12,6 +12,9 @@ import { LoginComponent } from './user/login/login.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormGroup, FormsModule } from '@angular/forms';
 import { UserComponent } from './user/user.component';
+import { PayementService } from './core/service/payement.service';
+import { NotifierModule } from 'angular-notifier';
+
 
 
 
@@ -26,10 +29,11 @@ import { UserComponent } from './user/user.component';
     BrowserModule,
     AppRoutingModule,
     RouterModule,
+    HttpClientModule,
     FormsModule,
-    HttpClientModule, 
+    NotifierModule
   ],
-  providers: [],
+ 
   bootstrap: [AppComponent]
 })
 export class AppModule { }

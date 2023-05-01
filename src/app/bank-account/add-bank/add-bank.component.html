@@ -1,0 +1,22 @@
+<div class="container shadow card mt-3">
+
+    <h1 align="center">Add Bank Account</h1>
+
+    <div class="form-group">
+        <label for="exampleInputEmail1">Rib</label>
+        <input [(ngModel)]="RiB" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter RiB">
+      </div>
+
+      
+    <div class="form-group">
+        <label for="exampleInputEmail1">Balance</label>
+        <input [(ngModel)]="Balance" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Balance">
+      </div>
+
+            
+    <div class="form-group">
+<button (click)="addBank()" class="btn btn-primary">Add Bank Account</button>
+      </div>
+
+
+</div>
