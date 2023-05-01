@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Payement } from '../model/Payement';
+import { Credit } from '../model/Credit';
 
 @Injectable({
   providedIn: 'root'
@@ -15,6 +16,12 @@ export class TestService {
   public getAllpayements() : Observable<Payement[]>{
 
   return this.http.get<Payement[]>('http://localhost:8089/nawa/pay/show') ;
+ }
+
+
+ public getpayementsByCredit( credit : Credit){
+
+  return this.http.post('http://localhost:8089/nawa/pay/showPayementByCredit',credit) ;
  }
 
  addProduct(payement : Payement) {

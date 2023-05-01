@@ -1,3 +1,4 @@
+import { Credit } from "./Credit";
 import { User } from "./User";
 
 export class Payement{
@@ -7,4 +8,5 @@ export class Payement{
     paymentMethod: string;
     score: number ;
     user : User ;
+    credit : Credit ;
 }

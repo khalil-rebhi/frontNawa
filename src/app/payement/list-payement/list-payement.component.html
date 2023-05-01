@@ -1,4 +1,11 @@
 
+<div class="input-group mb-3">
+    <span class="input-group-text">Chercher par credit existant</span>
+    <input type="text" class="form-control" [(ngModel)]="searchTerm">
+  </div>
+
+
+<!-- <input type="text" [(ngModel)]="searchTerm"> -->
 
 <table class="table table-striped table-bordered zero-configuration dataTable" id="DataTables_Table_0" role="grid" aria-describedby="DataTables_Table_0_info">
     <thead>
@@ -6,10 +13,10 @@
            
         </tr>
     </thead>
-    <tbody>
-     
-    <tr role="row" class="odd" *ngFor="let paiement of listPayement">
-        <td>{{ paiement.user.idUser }}
+    <tbody *ngFor="let paiement of listPayement">
+    
+    <tr role="row" class="odd" *ngIf="paiement.credit.idCredit == searchTerm || searchTerm == '' "  >
+        <td>{{ paiement.user.idUser }} </td>
         <td>{{ paiement.amount }}</td>
         <td>{{ paiement.payementDate | date:'dd/MM/yyyy' }}</td>
         <td>{{ paiement.score }}</td>
