@@ -9,7 +9,8 @@ const routes: Routes = [
     { path: 'user', loadChildren: () => import('../user/user.module').then(m => m.UserModule) },
     { path: 'credits', loadChildren: () => import('../credits/credits.module').then(m => m.CreditsModule) },
     { path: 'forum', loadChildren: () => import('../forum/forum.module').then(m => m.ForumModule) },
-    { path: 'offer', loadChildren: () => import('../offer/offer.module').then(m => m.OfferModule) }
+    { path: 'offer', loadChildren: () => import('../offer/offer.module').then(m => m.OfferModule) },
+
   ]}, 
   { path: '**', component: NotFoundComponent }
 ];

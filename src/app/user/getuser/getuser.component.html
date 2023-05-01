@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+</head>
+
+    <section class="vh-100">
+    <div class="container-fluid h-custom">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        
+        <form #updateForm='ngForm' (submit)="updateuser(updateForm)" autocomplete="off" class="justify-content-center {{formvalidation}}" novalidate>
+
+            <div class="ui-g">
+    
+            <div class="ui-sm-12 ui-md-6 ui-g-6">
+    
+                <div style="padding-right: 15px;">
+              <div class="row px-5 py-4">
+              <h4>Personnal Profil</h4>
+            </div>
+              <div class="form-group row px-5 py-1">
+                <label for="firstname" class="col-sm-4 col-form-label"><b>First name</b></label>
+                <div class="d-flex col-sm-6">
+                  <input required class="form-control" [maxLength]="20" [(ngModel)]="firstname" type="text" name="firstname" pattern="[A-Za-z ]+" id="firstname" [disabled]="enablebutton">
+                  <div class="valid-feedback" style="margin-left: 10px;">
+                    Looks good !
+                  </div>
+                  <div class="invalid-feedback" style="margin-left: 10px;">
+                    invalid first name !
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group row px-5 py-1">
+                <label for="lastname" class="col-sm-4 col-form-label"><b>Last name</b></label>
+                <div class="d-flex col-sm-6">
+                <input required class="form-control" [maxLength]="20" placeholder="Last Name" [(ngModel)]="lastname" type="text" name="lastname" pattern="[A-Za-z ]+" id="lastname" [disabled]="enablebutton">
+                <div class="valid-feedback" style="margin-left: 10px;">
+                  Looks good !
+                </div>
+                <div class="invalid-feedback" style="margin-left: 10px;" >
+                  invalid last name !
+                </div>
+              </div>
+              </div>
+    
+              <div class="form-group row px-5 py-1">
+                <label for="email" class="col-sm-4 col-form-label"><b>Email</b></label>
+                <div class="d-flex col-sm-6">
+                  <input required type="email" [maxLength]="35" placeholder="Email" [(ngModel)]="email" class="form-control" pattern="[a-zA-Z]+[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}"  name="email" id="email" [disabled]="enablebutton">
+                  <div class="valid-feedback" style="margin-left: 10px;">
+                    Looks good !
+                  </div>
+                  <div class="invalid-feedback" style="margin-left: 10px;">
+                    invalid Email !
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group row px-5 py-1">
+                <label for="cin" class="col-sm-4 col-form-label"><b>CIN</b></label>
+                <div class="d-flex col-sm-6">
+                  <input required class="form-control" placeholder="CIN" pattern="(0[0-9]{7}|1[0-9]{7})"  [(ngModel)]="cin" type="text" name="cin" id="cin" [disabled]="enablebutton">
+                  <div class="valid-feedback" style="margin-left: 10px;">
+                    Looks good !
+                  </div>
+                  <div class="invalid-feedback" style="margin-left: 10px;">
+                    invalid CIN !
+                  </div>
+                </div>
+              </div>
+    
+              <div class="form-group row px-5 py-1">
+                <label for="phoneNumber" class="col-sm-4 col-form-label"><b>Phone number</b></label>
+                <div class="d-flex col-sm-6">
+                  <input required class="form-control" placeholder="Phone Number"  [(ngModel)]="phoneNumber" pattern="(9[0-9]{7}|2[0-9]{7}|5[0-9]{7})" type="text" name="phoneNumber" id="phoneNumber" [disabled]="enablebutton">
+                  <div class="valid-feedback" style="margin-left: 10px;">
+                    Looks good !
+                  </div>
+                  <div class="invalid-feedback" style="margin-left: 10px;">
+                    invalid Phone Number !
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group row px-5 py-1">
+                <label for="dateOfBirth" class="col-sm-4 col-form-label"><b>Date Of Birth</b></label>
+                <div class="d-flex col-sm-6">
+                  <input required class="form-control" type="date" id="dateOfBirth" name="dateOfBirth"   [(ngModel)]="dateOfBirth" [disabled]="enablebutton" required pattern="\d{4}-\d{2}-\d{2}">
+                  <div class="valid-feedback" style="margin-left: 10px;">
+                    Looks good !
+                  </div>
+                  <div class="invalid-feedback" style="margin-left: 10px;">
+                    invalid date of birth !
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group row px-5 py-1">
+                <div class=" col-sm-6">
+                    <div class="form-check form-switch"> 
+                        <input class="form-check-input" type="checkbox" role="switch" id="isEmployed" name="isEmployed" [disabled]="enablebutton" [(ngModel)]="isEmployed" checked>
+                            <span *ngIf="isEmployed" aria-disabled="true">Employed</span>
+                            <span *ngIf="!isEmployed" aria-disabled="true">Not Employed</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group row px-5 py-1">
+                <div class=" col-sm-6">
+                    <div class="form-check form-switch">
+                        
+                            <span *ngIf="isVerified" aria-disabled="true">Verified</span>
+                            <span *ngIf="!isVerified" aria-disabled="true">Not Verified</span>
+                            
+                    </div>
+                </div>
+            </div>
+
+
+            </div>
+          </div>
+          <div class="form-group row px-5 py-1"></div>
+          <div class="ui-sm-12 ui-g-12" style="text-align:right; width:100%; padding:0;">
+    
+              <button onclick="window.location.href = '/user/changepassword';" class="btn btn-secondary me-2" type="button">Change Password</button>
+              <!--onclick="window.location.href = 'user/login';"-->
+              <button class="btn btn-primary" type="submit" icon="pi pi-check">Update Profile
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check2" viewBox="0 0 16 16">
+                  <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
+                </svg>
+              </button>
+        </div>
+        </div>
+      </form>
+    </div>
+      </div>
+  
+</section>
