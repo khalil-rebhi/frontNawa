@@ -1,0 +1,13 @@
+section {
+    background: url("../../../assets/login/images/background.jpg")no-repeat center center fixed;
+    -webkit-background-size:cover;
+    -o-background-size:cover;
+    -moz-background-size:cover;
+    background-size:cover;
+}
+.form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 110vh; /* Adjust the height as needed */
+  }

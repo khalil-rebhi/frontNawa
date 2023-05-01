@@ -7,8 +7,12 @@ import { RouterModule } from '@angular/router';
 import { BankAccountComponent } from './bank-account/bank-account.component';
 import { HomeComponent } from './home/home.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { UserModule } from './user/user.module';
+import { LoginComponent } from './user/login/login.component';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormGroup, FormsModule } from '@angular/forms';
+import { UserComponent } from './user/user.component';
+import { PayementService } from './core/service/payement.service';
 import { NotifierModule } from 'angular-notifier';
 
 
@@ -19,10 +23,8 @@ import { NotifierModule } from 'angular-notifier';
     AppComponent,
     BankAccountComponent,
     HomeComponent,
-    NotFoundComponent,
-    
-   
-  ],
+    NotFoundComponent
+    ],
   imports: [
     BrowserModule,
     AppRoutingModule,

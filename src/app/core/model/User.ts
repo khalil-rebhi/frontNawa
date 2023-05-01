@@ -1,3 +1,5 @@
+import { Role } from "./Role";
+
 export class User{
     idUser : number;
     lastName : string;
@@ -6,7 +8,9 @@ export class User{
     cin : number;
     dateOfBirth : Date;
     email : string;
+    picture : string
     phoneNumber : number;
     isEmployed : boolean;
     isVerified : boolean;
+    role : Role ;
 }

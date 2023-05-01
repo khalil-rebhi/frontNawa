@@ -1,0 +1,71 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+  
+</head>
+<!--<div class="alert alert-{{alertstyle}}" role="alert">
+    {{alertmessage}}
+  </div>  -->
+<section class="vh-100">
+    <div class="container-fluid h-custom">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-md-9 col-lg-6 col-xl-3">
+          <img src="assets/login/images/nawalogo.png" class="img-fluid"
+            alt="Sample image">
+        </div>
+        <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+          <form #form='ngForm' (submit)="onLogin(form)" autocomplete="off">
+            <div class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
+
+                <h6 class="display-4 font-italic fw-normal mb-0 me-8 my-5">Welcome !!</h6>
+            </div>
+  
+            <div class="divider d-flex align-items-center my-4">
+            </div>
+  
+            <!-- Email input -->
+            <div class="form-outline mb-4">
+              <input required type="email" [maxLength]="35" placeholder="Username" #email="ngModel" id="email" name="email" [(ngModel)]="formModel.email" class="form-control form-control-lg"
+                placeholder="E-mail" />
+            </div>
+  
+            <!-- Password input -->
+            <div class="form-outline mb-3">
+              <input required type="password" [maxLength]="35" placeholder="Password" #password="ngModel" id="password" name="password" [(ngModel)]="formModel.password" class="form-control form-control-lg"
+                placeholder="Password" />
+            </div>
+  
+            <div class="d-flex justify-content-between align-items-center">
+              <!-- Checkbox -->
+              <div class="form-check mb-0">
+                <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3" />
+                <label class="form-check-label text-white" for="form2Example3">
+                  Remember me
+                </label>
+              </div>
+              <a type="button" onclick="window.location.href = '/user/forgotpassword';" class="text-body">Forgot password?</a>
+              </div>
+  
+            <div class="text-center text-lg-start mt-4 pt-2">
+              <button type="submit" class="btn btn-primary btn-lg form-control form-control-lg"
+                style="padding-left: 2.5rem; padding-right: 2.5rem; display: block; margin: 0 auto;">Login</button>
+            </div>
+            <div class="text-center text-lg-start mt-4 pt-2">
+              <button id="google-signin-button" class="btn btn-primary btn-lg form-control form-control-lg"
+              style="padding-left: 2.5rem; padding-right: 2.5rem; display: block; margin: 0 auto;" >Continue with Gmail</button>
+            </div>
+
+            <div class="form-outline mb-0 mt-3 text-center">
+              <a>       Don't have an account?    </a>
+              <a routerLink="/user/sign_up" class="text-body text-center">            Sign up</a>
+              </div>
+          
+  
+          </form>
+        </div>
+      </div>
+    </div>
+</section>
