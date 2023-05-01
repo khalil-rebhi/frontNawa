@@ -7,20 +7,32 @@ import { RouterModule } from '@angular/router';
 import { BankAccountComponent } from './bank-account/bank-account.component';
 import { HomeComponent } from './home/home.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { PayementService } from './core/service/payement.service';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { NotifierModule } from 'angular-notifier';
+
+
+
 
 @NgModule({
   declarations: [
     AppComponent,
     BankAccountComponent,
     HomeComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    
+   
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    RouterModule
+    RouterModule,
+    HttpClientModule,
+    FormsModule,
+    NotifierModule
   ],
-  providers: [],
+ 
   bootstrap: [AppComponent]
 })
 export class AppModule { }
