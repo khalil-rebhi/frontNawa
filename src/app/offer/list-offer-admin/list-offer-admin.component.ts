@@ -10,12 +10,15 @@ import { OfferService } from 'src/app/core/service/offer.service';
 export class ListOfferAdminComponent implements OnInit {
 
   listOffers : Offer[];
+  acceptingOffer : Offer | null;
 
   constructor(private offerService:OfferService) { }
 
   ngOnInit(): void {
     this.offerService.getOffers().subscribe(result => {
       this.listOffers = result;
+      console.log(result);
+      
     });
   }
 
@@ -23,6 +26,14 @@ export class ListOfferAdminComponent implements OnInit {
     const index = this.listOffers.indexOf(offer); 
     this.listOffers.splice(index,1);
     this.offerService.deleteOffer(offer);
+  }
+
+  accept(offer : Offer){
+    this.acceptingOffer = offer;
+  }
+
+  afterAccept(){
+    this.acceptingOffer = null;
   }
 
 }

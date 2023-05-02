@@ -11,6 +11,7 @@ import { DetailsComponent } from './details/details.component';
 import { FormAdminComponent } from './form-admin/form-admin.component';
 import { EditFormComponent } from './edit-form/edit-form.component';
 import { ConfirmRequestComponent } from './confirm-request/confirm-request.component';
+import { AcceptOfferAdminComponent } from './accept-offer-admin/accept-offer-admin.component';
 
 
 
@@ -23,7 +24,8 @@ import { ConfirmRequestComponent } from './confirm-request/confirm-request.compo
     DetailsComponent,
     FormAdminComponent,
     EditFormComponent,
-    ConfirmRequestComponent
+    ConfirmRequestComponent,
+    AcceptOfferAdminComponent
     ],
   imports: [
     CommonModule,

@@ -21,10 +21,10 @@
                     role="grid"
                     aria-describedby="DataTables_Table_0_info"
                   >
-                    <thead>
+                    <thead class="text-center">
                       <tr role="row">
                         <th
-                          class="sorting_asc"
+                          class="_asc"
                           tabindex="0"
                           aria-controls="DataTables_Table_0"
                           rowspan="1"
@@ -36,7 +36,7 @@
                           Id
                         </th>
                         <th
-                          class="sorting"
+                          class=""
                           tabindex="0"
                           aria-controls="DataTables_Table_0"
                           rowspan="1"
@@ -47,7 +47,7 @@
                           Name
                         </th>
                         <th
-                          class="sorting"
+                          class=""
                           tabindex="0"
                           aria-controls="DataTables_Table_0"
                           rowspan="1"
@@ -58,7 +58,7 @@
                           Type
                         </th>
                         <th
-                          class="sorting"
+                          class=""
                           tabindex="0"
                           aria-controls="DataTables_Table_0"
                           rowspan="1"
@@ -69,7 +69,7 @@
                           Minimum amount
                         </th>
                         <th
-                          class="sorting"
+                          class=""
                           tabindex="0"
                           aria-controls="DataTables_Table_0"
                           rowspan="1"
@@ -80,7 +80,7 @@
                           Maximum amount
                         </th>
                         <th
-                          class="sorting"
+                          class=""
                           tabindex="0"
                           aria-controls="DataTables_Table_0"
                           rowspan="1"
@@ -91,7 +91,18 @@
                           Demanded amount
                         </th>
                         <th
-                        class="sorting"
+                          class=""
+                          tabindex="0"
+                          aria-controls="DataTables_Table_0"
+                          rowspan="1"
+                          colspan="1"
+                          aria-label="Salary: activate to sort column ascending"
+                          style="width: 100.828px"
+                        >
+                          Status
+                        </th>
+                        <th
+                        class=""
                         tabindex="0"
                         aria-controls="DataTables_Table_0"
                         rowspan="1"
@@ -103,18 +114,28 @@
                       </th>
                       </tr>
                     </thead>
-                    <tbody>
+                    <tbody class="text-center">
                       <tr role="row" class="odd" *ngFor="let offer of listOffers">
-                        <td class="sorting_1">{{ offer.idOffer }}</td>
+                        <td class="_1">{{ offer.idOffer }}</td>
                         <td>{{ offer.name }}</td>
                         <td>{{ offer.typeOffer }}</td>
                         <td>{{ offer.minAmount }}</td>
                         <td>{{ offer.maxAmount }}</td>
                         <td>{{ offer.demandedAmount }}</td>
-                        <td class="group-btn">
-                            <button (click)="delete(offer)"  class="btn btn-outline-danger"><i class="fa-solid fa-trash"></i></button>
-                            <a  routerLink="edit/{{ offer.idOffer }}" class="btn btn-outline-warning"><i class="fa-solid fa-pen-to-square"></i></a>
-                            <a routerLink="detail/{{ offer.idOffer }}" class="btn btn-outline-success"><i class="fa-solid fa-circle-info"></i></a>
+                        <td>
+                          <span *ngIf="offer.credit.amount == null"><i class="fa-solid fa-spinner fa-spin"></i></span>
+                          <span *ngIf="offer.credit.amount != null">Accepted</span>
+                          {{ offer.credit.amount}}
+                        </td>
+                        <td class="group-btn" *ngIf="offer.credit.amount != null">
+                          <a routerLink="detail/{{ offer.idOffer }}" class="btn btn-outline-success"><i class="fa-solid fa-circle-info"></i></a>
+                          <a  routerLink="edit/{{ offer.idOffer }}" class="btn btn-outline-warning"><i class="fa-solid fa-pen-to-square"></i></a>
+                          <button (click)="delete(offer)"  class="btn btn-outline-danger"><i class="fa-solid fa-trash"></i></button>
+                        </td>
+                        <td class="group-btn" *ngIf="offer.credit.amount == null">
+                          <a (click)="accept(offer)" class="btn btn-outline-success"><i class="fa-solid fa-check fa-l"></i></a>
+                          <a   class="btn btn-outline-warning"><i class="fa-solid fa-circle-info"></i></a>
+                          <button onclick="alert('Are you sure')"  class="btn btn-outline-danger"><i class="fa-solid fa-x"></i></button>
                         </td>
                       </tr>
                     </tbody>
@@ -127,5 +148,8 @@
       </div>
     </div>
   </div>
+</div>
+<div *ngIf="acceptingOffer" (accepted)="afterAccept()">
+  <app-accept-offer-admin [offer]="acceptingOffer"></app-accept-offer-admin>
 </div>
 

@@ -1,0 +1,29 @@
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Offer } from 'src/app/core/model/Offer';
+import { CreditService } from 'src/app/core/service/credit.service';
+import { OfferService } from 'src/app/core/service/offer.service';
+
+@Component({
+  selector: 'app-accept-offer-admin',
+  templateUrl: './accept-offer-admin.component.html',
+  styleUrls: ['./accept-offer-admin.component.css']
+})
+export class AcceptOfferAdminComponent implements OnInit {
+  @Input() offer: Offer;
+  @Output() accepted = new EventEmitter<void>();
+
+  constructor(private creditService:CreditService) { }
+
+  ngOnInit(): void {
+  }
+
+  acceptCredit(){
+    this.offer.credit.acceptDate = new Date();
+    this.offer.credit.creditStartDate = new Date();
+    this.offer.credit.isPayed = false;    
+    this.creditService.acceptCredit(this.offer).subscribe(result =>{
+      this.accepted.emit();
+    }
+    );
+  }
+}

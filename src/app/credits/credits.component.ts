@@ -9,17 +9,11 @@ import { SimulateService } from '../core/service/simulate.service';
   styleUrls: ['./credits.component.css']
 })
 export class CreditsComponent implements OnInit {
-  credit : Credit;
-  listCredit : Credit[];
 
 
   constructor(private service:SimulateService) { }
 
   ngOnInit(): void {
-    // this.credit = new Credit ();
-    
-    // this.service.getCredits().subscribe(res=>{console.log(res);
-    //   this.listCredit=res});
   }
 
 }

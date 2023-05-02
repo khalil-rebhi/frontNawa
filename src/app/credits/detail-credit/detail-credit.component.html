@@ -1,0 +1,40 @@
+<div style="padding: 5px ;">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-4 col-xl-3">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="media align-items-center mb-4">
+                            <button type="button" routerLink="/admin/credits" class="btn btn-outline-info">Go back to list.</button>
+                        </div>
+                        <div class="media align-items-center mb-4">
+                            <div class="media-body">
+                                <h3 class="mb-0">{{ credit.amount }} dt</h3>
+                            </div>
+                        </div>
+
+                        <h4>Credit benificiar</h4>
+                        <p class="text-muted">{{ credit.user.firstName }} {{ credit.user.lastName }}</p>
+                    </div>
+                </div>  
+            </div>
+            <div class="col-lg-8 col-xl-9">
+                <div class="card border-dark">
+                    <h5 class="card-title" style="margin: 2rem 0 0 2rem;">
+                        Suggested credit
+                    </h5>
+                    <div class="card-body">
+                        <ul class="card-profile__info">
+                            <li class="mb-1"><strong class="text-dark mr-4">Credit amount</strong> <span>{{ credit.amount }} Dt</span></li>
+                            <li class="mb-1"><strong class="text-dark mr-4">Credit duration</strong> <span>{{ credit.duration }} months</span></li>
+                            <li class="mb-1"><strong class="text-dark mr-4">Interest rate</strong> <span>{{ credit.interestRate }} %</span></li>
+                            <li class="mb-1"><strong class="text-dark mr-4">Acceptance date</strong> <span>{{ credit.acceptDate }} </span></li>
+                            <li class="mb-1"><strong class="text-dark mr-4">Start date</strong> <span>{{ credit.creditStartDate }} </span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            </div>
+            </div>
+            </div>
+                
