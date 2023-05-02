@@ -1,0 +1,34 @@
+<div style="position:absolute;top:200px;right: 100px;">
+    <a class="btn btn-friends-and-foes-2" routerLink="request"><i class="fa-solid fa-circle-info fa-fade"></i> Need a specific loan?</a>
+</div>
+<div id="primary" class="sidebar-no" style="margin-top: 8rem;padding-left: 15rem;">
+    <div class="container group">
+        <div class="row">
+            <div id="content-page" class="span12 content group">
+                <div class="page type-page status-publish group">
+                <div class="row">
+                <ul id="portfolio" class="columns columns thumbnails">
+                    <li *ngFor="let offer of listOffer" class="work span3">
+                        <div class="picture_overlay">
+                            <img width="360" height="216" src="../../assets/client/css/images/portfolios/0017.jpg" class="attachment-thumb_portfolio_3cols" alt="piggie8">
+                            <div class="overlay">
+                                <div style="margin-top: -44.5px; margin-left: -39.5px;">
+                                    <p class="title">{{ offer.name }}</p>
+                                    <p class="subtitle">{{ offer.typeOffer}}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <h4>
+                            <a href="portfolio-detail.html">{{ offer.name }}</a>
+                        </h4>
+                        <p><b>Minimun amount allowed : </b>{{offer.minAmount}} Dt</p>
+                        <p><b>Maximum amount allowed : </b>{{offer.maxAmount}} Dt</p>
+                        <a class="read-more" href="portfolio-detail.html">Ask for loan</a>
+                    </li>
+                </ul>                
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+</div>

@@ -1,3 +1,6 @@
+import { Offer } from "./Offer";
+import { User } from "./User";
+
 export class Credit{
     idCredit:number;
     creditStartDate: Date;
@@ -7,4 +10,6 @@ export class Credit{
     interestRate: number;
     acceptDate: Date;
     isPayed: Boolean;
+    offer: Offer;
+    user : User;
 }
