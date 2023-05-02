@@ -149,7 +149,7 @@
     </div>
   </div>
 </div>
-<div *ngIf="acceptingOffer" (accepted)="afterAccept()">
-  <app-accept-offer-admin [offer]="acceptingOffer"></app-accept-offer-admin>
+<div *ngIf="showAccept">
+  <app-accept-offer-admin [offer]="acceptingOffer" (showAccept)="afterAccept()"></app-accept-offer-admin>
 </div>
 

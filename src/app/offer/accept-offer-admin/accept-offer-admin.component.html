@@ -1,23 +1,27 @@
-<form (ngSubmit)="acceptCredit()">
-    <div class="mb-3">
-      <label for="minAmount" class="form-label">Minimum amount</label>
-      <input type="number" class="form-control" id="minAmount" name="minAmount" [(ngModel)]="offer.minAmount" #minAmount="ngModel" aria-describedby="emailHelp" disabled>
-    </div>
-    <div class="mb-3">
-        <label for="maxAmount" class="form-label">Maximum amount</label>
-        <input type="number" class="form-control" id="maxAmount" name="maxAmount" [(ngModel)]="offer.maxAmount" #maxAmount="ngModel" aria-describedby="emailHelp" disabled>
+<div class="card">
+  <div class="card-body">
+    <form (ngSubmit)="acceptCredit()">
+      <div class="mb-3">
+        <label for="minAmount" class="form-label">Minimum amount</label>
+        <input type="number" class="form-control" id="minAmount" name="minAmount" [(ngModel)]="offer.minAmount" #minAmount="ngModel" aria-describedby="emailHelp" disabled>
       </div>
-    <div class="mb-3">
-        <label for="duration" class="form-label">Duration</label>
-        <input type="number" class="form-control" id="duration" name="duration" [(ngModel)]="offer.credit.duration" #duration="ngModel" aria-describedby="emailHelp" disabled>
-      </div>
-    <div class="mb-3">
-        <label for="interestRate" class="form-label">Interest rate</label>
-        <input type="number" class="form-control" id="interestRate" name="interestRate" [(ngModel)]="offer.credit.interestRate" #interestRate="ngModel" aria-describedby="emailHelp" disabled>
-      </div>
-    <div class="mb-3">
-        <label for="amount" class="form-label">Amount</label>
-        <input type="number" class="form-control" id="amount" name="amount" [(ngModel)]="offer.credit.amount" #amount="ngModel" aria-describedby="emailHelp">
-      </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
-  </form>
+      <div class="mb-3">
+          <label for="maxAmount" class="form-label">Maximum amount</label>
+          <input type="number" class="form-control" id="maxAmount" name="maxAmount" [(ngModel)]="offer.maxAmount" #maxAmount="ngModel" aria-describedby="emailHelp" disabled>
+        </div>
+      <div class="mb-3">
+          <label for="duration" class="form-label">Duration</label>
+          <input type="number" class="form-control" id="duration" name="duration" [(ngModel)]="offer.credit.duration" #duration="ngModel" aria-describedby="emailHelp" disabled>
+        </div>
+      <div class="mb-3">
+          <label for="interestRate" class="form-label">Interest rate</label>
+          <input type="number" class="form-control" id="interestRate" name="interestRate" [(ngModel)]="offer.credit.interestRate" #interestRate="ngModel" aria-describedby="emailHelp" disabled>
+        </div>
+      <div class="mb-3">
+          <label for="amount" class="form-label">Amount</label>
+          <input type="number" class="form-control" id="amount" name="amount" [(ngModel)]="offer.credit.amount" #amount="ngModel" aria-describedby="emailHelp">
+        </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+</div>

@@ -10,7 +10,8 @@ import { OfferService } from 'src/app/core/service/offer.service';
 export class ListOfferAdminComponent implements OnInit {
 
   listOffers : Offer[];
-  acceptingOffer : Offer | null;
+  acceptingOffer : Offer ;
+  showAccept : boolean = false;
 
   constructor(private offerService:OfferService) { }
 
@@ -29,11 +30,14 @@ export class ListOfferAdminComponent implements OnInit {
   }
 
   accept(offer : Offer){
+    this.showAccept = true;
     this.acceptingOffer = offer;
   }
 
   afterAccept(){
-    this.acceptingOffer = null;
+    console.log("afterSubmit");
+    
+    this.showAccept = false;
   }
 
 }

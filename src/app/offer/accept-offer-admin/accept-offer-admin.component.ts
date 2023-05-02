@@ -10,7 +10,7 @@ import { OfferService } from 'src/app/core/service/offer.service';
 })
 export class AcceptOfferAdminComponent implements OnInit {
   @Input() offer: Offer;
-  @Output() accepted = new EventEmitter<void>();
+  @Output() showAccept = new EventEmitter<void>();
 
   constructor(private creditService:CreditService) { }
 
@@ -22,7 +22,7 @@ export class AcceptOfferAdminComponent implements OnInit {
     this.offer.credit.creditStartDate = new Date();
     this.offer.credit.isPayed = false;    
     this.creditService.acceptCredit(this.offer).subscribe(result =>{
-      this.accepted.emit();
+      this.showAccept.emit();
     }
     );
   }

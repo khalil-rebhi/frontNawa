@@ -120,9 +120,9 @@
                                 <button (click)="delete(credit)"  class="btn btn-outline-danger"><i class="fa-solid fa-trash"></i></button>
                             </td>
                             <td class="group-btn" *ngIf="!credit.creditStartDate">
-                                <a  class="btn btn-outline-success"><i class="fa-solid fa-check fa-l"></i></a>
-                                <a   class="btn btn-outline-warning"><i class="fa-solid fa-circle-info" name="info"></i></a>
-                                <button   class="btn btn-outline-danger"><i class="fa-solid fa-x" name="decline"></i></button>
+                              <a routerLink="/admin/payments/listPayment/{{credit.idCredit}}" class="btn btn-outline-success"><i class="fa-solid fa-list-check"></i></a>
+                              <a routerLink="details/{{credit.idCredit}}"  class="btn btn-outline-warning"><i class="fa-solid fa-circle-info"></i></a>
+                              <button (click)="delete(credit)"  class="btn btn-outline-danger"><i class="fa-solid fa-trash"></i></button>
                             </td>
                           </tr>
                         </tbody>
