@@ -12,74 +12,74 @@ export class ForumService {
   addForum(forum: Forum) {
     const headers = { 'Content-Type': 'application/json' };
 
-    return this.http.post("http://127.0.0.1:1919/nawa/Post/add", forum, { headers });
+    return this.http.post("http://127.0.0.1:8089/nawa/post/add", forum, { headers });
   }
 
   getPost() {
-    return this.http.get("http://127.0.0.1:1919/nawa/Post/show")
+    return this.http.get("http://127.0.0.1:8089/nawa/post/show")
   }
 
   getComment() {
-    return this.http.get("http://127.0.0.1:1919/nawa/Comment/show/")
+    return this.http.get("http://127.0.0.1:8089/nawa/comment/show/")
   }
 
   addComment(comment: any, idPost: any) {
 
     const headers = { 'Content-Type': 'application/json' };
 
-    return this.http.post("http://127.0.0.1:1919/nawa/Comment/add/" + idPost, comment, { headers })
+    return this.http.post("http://127.0.0.1:8089/nawa/comment/add/" + idPost, comment, { headers })
   }
 
   like(idPost: any) {
     const headers = { 'Content-Type': 'application/json' };
-    return this.http.post("http://127.0.0.1:1919/nawa/Post/likePost/" + idPost, { headers })
+    return this.http.post("http://127.0.0.1:8089/nawa/post/likePost/" + idPost, { headers })
 
   }
 
   dislike(idPost: any) {
     const headers = { 'Content-Type': 'application/json' };
-    return this.http.post("http://127.0.0.1:1919/nawa/Post/disLikePost/" + idPost, { headers })
+    return this.http.post("http://127.0.0.1:8089/nawa/post/disLikePost/" + idPost, { headers })
 
   }
 
 
   bestShow() {
-    return this.http.get("http://127.0.0.1:1919/nawa/Post/showBest")
+    return this.http.get("http://127.0.0.1:8089/nawa/post/showBest")
   }
 
   Tri() {
-    return this.http.get("http://127.0.0.1:1919/nawa/Post/showTri")
+    return this.http.get("http://127.0.0.1:8089/nawa/post/showTri")
   }
 
   deletePost(idPost: any) {
-    return this.http.delete("http://127.0.0.1:1919/nawa/Post/delete/" + idPost)
+    return this.http.delete("http://127.0.0.1:8089/nawa/post/delete/" + idPost)
   }
 
   deleteComment(idComment: any) {
-    return this.http.delete("http://127.0.0.1:1919/nawa/Comment/delete/" + idComment)
+    return this.http.delete("http://127.0.0.1:8089/nawa/comment/delete/" + idComment)
   }
 
   getByid(id: any) {
-    return this.http.get("http://127.0.0.1:1919/nawa/Post/show/" + id);
+    return this.http.get("http://127.0.0.1:8089/nawa/post/show/" + id);
   }
 
   editPost(id: any, forum: any) {
     const headers = { 'Content-Type': 'application/json' };
 
-    return this.http.put("http://127.0.0.1:1919/nawa/Post/edit/" + id, forum, { headers });
+    return this.http.put("http://127.0.0.1:8089/nawa/post/edit/" + id, forum, { headers });
   }
 
 getCommentByPost(idPost:any){
-  return this.http.get("http://127.0.0.1:1919/nawa/Comment/show/"+idPost);
+  return this.http.get("http://127.0.0.1:8089/nawa/comment/show/"+idPost);
 }
 
 editComment(id:any,text:any){
   const headers = { 'Content-Type': 'application/json' };
 
-  return this.http.put("http://127.0.0.1:1919/nawa/Comment/edit/"+id,text,{headers});
+  return this.http.put("http://127.0.0.1:8089/nawa/comment/edit/"+id,text,{headers});
 }
 
 deleteComm(id:any){
-  return this.http.delete("http://127.0.0.1:1919/nawa/Comment/delete/"+id);
+  return this.http.delete("http://127.0.0.1:8089/nawa/comment/delete/"+id);
 }
 }

@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { BankAccount } from 'src/app/core/model/BankAccount';
+import { User } from 'src/app/core/model/User';
 import { BankService } from 'src/app/core/service/bank.service';
+import { UserService } from 'src/app/core/service/user.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-myaccount',
@@ -9,10 +13,8 @@ import { BankService } from 'src/app/core/service/bank.service';
 export class MyaccountComponent implements OnInit {
 
   data: any = []
-  userFirsname: String
-  Rib: any;
-  balance: any
-  idBan: Number = 6
+  user: User;
+  bankAccount : BankAccount;
   dataAcc: any = []
   TransSom: Number;
   To: any;
@@ -21,25 +23,21 @@ export class MyaccountComponent implements OnInit {
   to: any;
   amount: any;
   result: any;
-  constructor(private sr: BankService) { }
+  constructor(private sr: BankService, private userService: UserService) { }
 
   getMYBank() {
-    this.sr.getBankAccountbyid(this.idBan).subscribe((res: any) => {
-      this.data = res
-      this.userFirsname = this.data.user.firstName
-      this.Rib = this.data.rib
-      this.balance = this.data.balance
-      console.log(this.userFirsname)
+    if (environment.userid) {
+      this.sr.getBankAccountByUser(environment.userid).subscribe((res: any) => {
+        this.bankAccount = res;
+      });
     }
-    )
   }
   somme: Number;
 
   AddAmount() {
 
 
-    this.sr.AddAmount(this.idBan, this.somme).subscribe((res: any) => {
-
+    this.sr.AddAmount(this.bankAccount.idBankAccount, this.somme).subscribe((res: any) => {
       console.log(res)
       this.getMYBank()
     })
@@ -55,7 +53,7 @@ export class MyaccountComponent implements OnInit {
   Transaction() {
     let somme = this.TransSom;
 
-    this.sr.Transact(this.To, this.idBan, somme).subscribe((res: any) => {
+    this.sr.Transact(this.To, this.bankAccount.idBankAccount, somme).subscribe((res: any) => {
       console.log(res)
       this.getMYBank()
     }
@@ -70,15 +68,18 @@ export class MyaccountComponent implements OnInit {
       "to":this.to,
       "amount":this.amount
     }
+    console.log(amount);
     this.sr.Convert(amount).subscribe((res: any) => {
+      
       this.result = res;
       console.log(res)
     }
     )
   }
   ngOnInit(): void {
-    this.getMYBank()
-    this.getdata()
+    this.userService.getUser(environment.userid).subscribe(res => this.user = res);
+    this.getMYBank();
+    this.getdata();
   }
 
 }

@@ -5,4 +5,5 @@ export class Comment{
     text:string;
     score : number =0;
     likes : number;
+    user: User;
 }
