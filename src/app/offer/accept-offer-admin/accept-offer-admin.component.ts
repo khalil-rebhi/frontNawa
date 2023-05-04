@@ -12,7 +12,7 @@ export class AcceptOfferAdminComponent implements OnInit {
   @Input() offer: Offer;
   @Output() showAccept = new EventEmitter<void>();
 
-  constructor(private creditService:CreditService) { }
+  constructor(private creditService:CreditService, private offerRequestService:OfferService) { }
 
   ngOnInit(): void {
   }
@@ -20,10 +20,15 @@ export class AcceptOfferAdminComponent implements OnInit {
   acceptCredit(){
     this.offer.credit.acceptDate = new Date();
     this.offer.credit.creditStartDate = new Date();
-    this.offer.credit.isPayed = false;    
-    this.creditService.acceptCredit(this.offer).subscribe(result =>{
-      this.showAccept.emit();
+    this.offer.credit.isPayed = false;   
+    this.offerRequestService.getOfferRequests(this.offer.idOffer).subscribe(res => {
+      this.offer.credit.user = res[0].user;
+      this.creditService.acceptCredit(this.offer).subscribe(result =>{
+        this.showAccept.emit();
+      }
+      );
     }
-    );
+    )}; 
+
   }
-}
+

@@ -21,7 +21,7 @@ export class ListCreditComponent implements OnInit {
   ngOnInit(): void {
     const currentPath = this.activatedRoute.snapshot.pathFromRoot.filter(element => element.routeConfig?.path == "client");
     if (currentPath.length > 0 && environment.userid) {      
-      this.creditService.getCreditByUser(environment.userid).subscribe(result => this.listCredit = result);
+      this.creditService.getCreditByUser(environment.userid).subscribe(result => this.listCredit = result.filter(element => element.acceptDate));
       this.creditPayment = null;
     }else{
     this.creditService.getAllCredit().subscribe(result => this.listCredit = result);
