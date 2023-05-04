@@ -10,13 +10,15 @@ import { TestService } from 'src/app/core/service/test.service';
 })
 export class ListPayementComponent implements OnInit {
   listPayement : Payement[] = [] ;
-  payement !: Payement ;
+  filteredPaiements: Payement[] = [];
+ 
   form : boolean = false;
+  searchTerm: any = '';
 
   constructor(private service:TestService,private router:Router) { }
 
   ngOnInit(): void {
-    this.payement = new Payement();
+   
     
     this.service.getAllpayements().subscribe(res=>{console.log(res);
       this.listPayement=res});
@@ -29,6 +31,11 @@ export class ListPayementComponent implements OnInit {
     
   });
 
+ }
+
+ search (){
+  this.service.getpayementsByCredit(this.searchTerm).subscribe(res=>{console.log(res);
+  });
  }
 
 }

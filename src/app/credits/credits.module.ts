@@ -7,6 +7,8 @@ import { FormsModule } from '@angular/forms';
 import { CreditsComponent } from './credits.component';
 import { ListCreditComponent } from './list-credit/list-credit.component';
 import { DetailCreditComponent } from './detail-credit/detail-credit.component';
+import { PayementsByCreditComponent } from './payements-by-credit/payements-by-credit.component';
+
 
 
 
@@ -15,7 +17,8 @@ import { DetailCreditComponent } from './detail-credit/detail-credit.component';
     CreditsComponent,
     SimulateCreditComponent,
     ListCreditComponent,
-    DetailCreditComponent
+    DetailCreditComponent,
+    PayementsByCreditComponent
   ],
   imports: [
     CommonModule,

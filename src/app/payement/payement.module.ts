@@ -9,6 +9,7 @@ import { PayCreditComponent } from './pay-credit/pay-credit.component';
 import { NotifierModule } from 'angular-notifier';
 import { ListPayementComponent } from './list-payement/list-payement.component';
 
+
 @NgModule({
   declarations: [
     PayementComponent,
