@@ -18,6 +18,8 @@ user : User;
 private readonly notifier: NotifierService;
 response:PayCreditResponse ;
 
+notif : boolean = false ;
+
 
 
 
@@ -41,7 +43,13 @@ response:PayCreditResponse ;
         // handle error response
         if (error.status === 400) {
           console.log('Bad Request');
-          this.notifier.notify('warning', 'Verifier les données saisies');
+          // this.notifier.show({
+          //   type: 'success',
+          //   message: 'This is a success notification!',
+          //   id: 'notifier__container-list-item'
+          //   });
+this.notif = true ;
+setTimeout(() => { this.notif=false}, 5000);
         } else if (error.status === 401) {
           console.log('Unauthorized');
         } else if (error.status === 404) {
