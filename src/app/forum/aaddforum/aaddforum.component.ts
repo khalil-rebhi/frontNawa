@@ -47,6 +47,8 @@ export class AaddforumComponent implements OnInit {
   getPost() {
     this.sr.getPost().subscribe((res) => {
       this.data = res;
+      console.log(this.data);
+      
       //loop for get comment
 
       console.log(res);

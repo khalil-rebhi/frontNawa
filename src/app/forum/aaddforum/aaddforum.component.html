@@ -38,14 +38,14 @@
                         <p>{{x.text}}</p>
                         <div class="stats">
                             <a (click)="likePost(x.idPost)" class="btn btn-default stat-item">
-                                <i class="fa fa-thumbs-up icon " style="color:rgba(77, 77, 77, 0.123)"
+                                <i class="fa-solid fa-thumbs-up " style="color:rgba(77, 77, 77, 0.3)"
                                     *ngIf="x.score==0"></i>
                                 <i class="fa fa-thumbs-up icon " style="color:rgba(30, 82, 223, 0.774)"
                                     *ngIf="x.score!=0"></i>
 
                             </a>
                             <a (click)="dislike(x.idPost)" class="btn btn-default stat-item">
-                                <i class="fa fa-thumbs-down icon " style="color:rgba(77, 77, 77, 0.123)"
+                                <i class="fa fa-thumbs-down icon " style="color:rgba(77, 77, 77, 0.3)"
                                     *ngIf="x.score==0"></i>
                                 <i class="fa fa-thumbs-down icon " style="color:rgba(30, 82, 223, 0.774)"
                                     *ngIf="x.score!=0"></i>
@@ -77,7 +77,7 @@
                                 </a>
                                 <div class="comment-body">
                                     <div class="comment-heading">
-                                        <h4 class="user">{{i.post.user.firstName}}</h4>
+                                        <h4 class="user">{{i.user.firstName}}</h4>
                                         <h5 class="time">5 minutes ago</h5>
                                     </div>
                                     <p>{{i.text}}</p>
