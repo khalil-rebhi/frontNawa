@@ -21,9 +21,17 @@
                     <li>
                         <a href="/client/user/getuser">PROFILE</a>
                     </li>
+                    <li>
+                    <label for="firstname" class="col-sm-4 col-form-label"><b>{{firstname}}</b></label>
+                    </li>
+                    <li>
+                    <label for="lastname" class="px-2 col-sm-4 col-form-label"><b>{{lastname}}</b></label>
+                </li>
+                <li>
+                    <img class="px-3 mt-3" [src]="picture" alt="Image" width="60"/></li>
                 </ul>
                 <div id="topbar_login" class="not_logged_in">
-
+                    
                     <a class="topbar_login" href="/user/login">
                         <i class="fa-duotone fa-user-bounty-hunter fa-spin fa-spin-reverse fa-xl"></i>LOG OUT
                     </a>

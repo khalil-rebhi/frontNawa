@@ -20,22 +20,6 @@ export class ConnectivityGuard implements CanActivate {
       }
     return true;
   }
-  /*
-  constructor(private router: Router) {}
-  //: Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree 
-  canActivate(
-    route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot){
-      if (localStorage.getItem("token")!=null) {
-        //this.expdate.setMilliseconds(parseInt(environment.adminsessionexp));
-          HomeComponent.loggedIn=true;
-          return true; 
-      } else {
-        HomeComponent.loggedIn=false;
-        this.router.navigate(['/notfound']);
-      }
-    return false;
-  }
-  */
+  
 }
 

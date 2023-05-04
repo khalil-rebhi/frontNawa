@@ -11,6 +11,7 @@ import { GetuserComponent } from './getuser/getuser.component';
 import { ChangepasswordComponent } from './changepassword/changepassword.component';
 import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.component';
 import { SetnewpasswordComponent } from './setnewpassword/setnewpassword.component';
+import { CanActivate } from '@angular/router';
 
 
 @NgModule({
