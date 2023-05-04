@@ -8,12 +8,12 @@
         </div>
         <table>
 
-            <tr>Username: {{userFirsname}}</tr>
-            <tr>Rib:{{Rib}}</tr>
+            <tr> Client :{{user.lastName}} {{ user.firstName }}</tr>
+            <tr>Rib: {{bankAccount.rib}}</tr>
 
 
-            <tr *ngIf="balance<0" style="color:red;">Balance:{{balance}} you are in RED ZONE !!</tr>
-            <tr *ngIf="balance>=0">Balance:{{balance}}</tr>
+            <tr *ngIf="bankAccount.balance<0" style="color:red;">Balance: {{bankAccount.balance}} you are in RED ZONE !!</tr>
+            <tr *ngIf="bankAccount.balance>=0">Balance: {{bankAccount.balance}}</tr>
 
 
         </table>

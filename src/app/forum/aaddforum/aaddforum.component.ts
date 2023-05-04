@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from 'src/app/core/model/User';
 import { ForumService } from 'src/app/core/service/forum.service';
+import { UserService } from 'src/app/core/service/user.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-aaddforum',
@@ -18,23 +21,17 @@ export class AaddforumComponent implements OnInit {
   detPos: any = [];
   detCom: any = [];
   dataComment: any = [];
-  idUser = 1;
-  user: any = {
-    "idUser": 1,
-    "lastName": "client",
-    "firstName": "client",
-    "cin": 123456,
-    "dateBirth": null,
-    "phoneNumber": 23456784,
-    "email": "client@gmail.com",
-    "isEmployed": null,
-    "isVerified": null,
-    "role": "CLIENT",
-    "account": null
-  };
+  user : User;
 
   idEdPost!: Number;
-  constructor(private sr: ForumService) { }
+  constructor(private sr: ForumService, private userService:UserService) { }
+
+  ngOnInit(): void {
+    this.showInp == false;
+    this.userService.getUser(environment.userid).subscribe(res => this.user = res);
+    this.getPost();
+    this.getComment();
+  }
 
   addForum() {
     let data: any = {
@@ -70,7 +67,6 @@ export class AaddforumComponent implements OnInit {
       "text": textComment,
       user: this.user
     }
-
     this.sr.addComment(data, idPost).subscribe((res) => {
       this.getComment();
       console.log(res);
@@ -173,12 +169,7 @@ export class AaddforumComponent implements OnInit {
     }
     )
   }
-  ngOnInit(): void {
-    this.showInp == false;
 
-    this.getPost();
-    this.getComment();
-  }
 
 
 }
