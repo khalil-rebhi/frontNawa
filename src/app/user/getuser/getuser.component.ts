@@ -5,14 +5,13 @@ import { Renderer2 } from '@angular/core';
 import { Role } from 'src/app/core/model/Role';
 import { environment } from 'src/environments/environment';
 import { NgForm } from '@angular/forms';
-import { env } from 'process';
+
 @Component({
   selector: 'app-getuser',
   templateUrl: './getuser.component.html',
   styleUrls: ['./getuser.component.css']
 })
 export class GetuserComponent implements OnInit {
-
 
   readonly styles:string[] = [
     "https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css",
@@ -76,8 +75,14 @@ export class GetuserComponent implements OnInit {
   isVerified : boolean;
   formvalidation : string = "";
   validateconfirmpassword : string="";
-  alertmessage: string="";
+  alertstyle: string; 
+  alertmessage: string;
   enablebutton: boolean=true;
+  imagevalidation: string = "";
+  public imagePath: any;
+  userpicture : any;
+  imgURL: any;
+  userFile: any;
 
   constructor(private userService : UserService, private renderer: Renderer2 ) { }
 
@@ -88,6 +93,8 @@ export class GetuserComponent implements OnInit {
       this.renderer.setAttribute(linkElement, 'href', element);
       this.renderer.appendChild(document.head, linkElement);
     });
+
+    this.userpicture = this.userService.host+'user/getpicture/'+environment.picture;
 
     this.userService.getUser(environment.userid).subscribe((user: any) => {
       // Handle the response here and assign it to a variable in your component
@@ -132,6 +139,63 @@ export class GetuserComponent implements OnInit {
      else {
       this.enablebutton = false ;
      }
+  }
+
+  changeimage(imageForm: NgForm){
+    if(this.userFile == null){
+      this.alertstyle="danger";
+      this.alertmessage="No file chosen Or The file is not supported !"; 
+      this.imagevalidation = "was-validated";
+      return;
+    }
+    const formData = new FormData();
+    formData.append('iduser', this.user.idUser.toString());
+    formData.append('file', this.userFile);
+    this.userService.updateimage(formData).subscribe(
+
+      (res: any) => {
+        this.alertstyle="success";
+        this.alertmessage="profile image successfully updated !"; 
+        this.userpicture = this.imgURL;
+        this.user = res;
+        localStorage.setItem("picture",this.user.picture);
+        console.log(environment.picture);
+        //AdminaccounthomeComponent.profileimagehome = this.imgURL;
+      },
+      (err : any)=> {
+        this.alertstyle="danger";
+        this.alertmessage="unable to change profile image !"; 
+      }
+    );
+  }
+
+  onSelectFile(event: any){
+
+    if(event.target.files.length > 0){
+      var mimeType = event.target.files[0].type;
+      if(mimeType.match(/image\/png/) == null && mimeType.match(/image\/jpeg/) == null){
+        this.alertstyle="warning";
+        this.alertmessage="only PNG and JPG images are supported !"; 
+        return;
+      }
+      var mimesize = event.target.files[0].size;
+      if(mimesize > 410000){
+        this.alertstyle="warning";
+        this.alertmessage="image size must be under 400 KB !"; 
+        return;
+      }
+      const file = event.target.files[0];
+      this.userFile = file;
+
+      var render = new FileReader();
+
+      this.imagePath = file;
+      render.readAsDataURL(file);
+      render.onload =(event) => {
+      this.imgURL = render.result;
+      this.userpicture = this.imgURL;
+      }
+    }
   }
 
 }

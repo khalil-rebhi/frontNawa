@@ -9,8 +9,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { GetusersComponent } from './getusers/getusers.component';
 import { GetuserComponent } from './getuser/getuser.component';
 import { ChangepasswordComponent } from './changepassword/changepassword.component';
-import { GoogleSigninButtonModule, SocialAuthServiceConfig } from '@abacritt/angularx-social-login';
-import { GoogleLoginProvider } from '@abacritt/angularx-social-login';
 import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.component';
 import { SetnewpasswordComponent } from './setnewpassword/setnewpassword.component';
 
@@ -31,8 +29,7 @@ import { SetnewpasswordComponent } from './setnewpassword/setnewpassword.compone
     CommonModule,
     UserRoutingModule,
     FormsModule,
-    HttpClientModule,
-    GoogleSigninButtonModule
+    HttpClientModule
   ]
   
 })
