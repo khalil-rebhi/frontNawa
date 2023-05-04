@@ -63,8 +63,9 @@ setTimeout(() => { this.notif=false}, 5000);
         } else {
           console.log('Server AAAA');
           // this.toastr.success('Hello world!', 'Toastr fun!');
+          
           this.notifier.notify('succes','paiement avec succés');
-          this.router.navigateByUrl("/client/credits");
+        setTimeout(() => {this.router.navigateByUrl("/client/credits");}, 5000);
         }
       }
     );
