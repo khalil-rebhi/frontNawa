@@ -13,6 +13,7 @@ import { environment } from 'src/environments/environment';
     adminhttpOptions;
     httpOptions : any;
     user : User ;
+    host: string = environment.nawaUrl;
     constructor(private http: HttpClient){
      this.adminhttpOptions = {  headers: new HttpHeaders({
       'Authorization': "Bearer " + ""
@@ -24,7 +25,6 @@ import { environment } from 'src/environments/environment';
     getAllUsers(): Observable<any> { return this.http.get(environment.nawaUrl + "user/all", this.adminhttpOptions); }
     DeleteUser(idUser : any ): Observable<any> { return this.http.delete(environment.nawaUrl + "user/delete/"+ idUser, this.adminhttpOptions); }
     getUser(idUser : any): Observable<any> { return this.http.get(environment.nawaUrl + "user/get/"+idUser, this.adminhttpOptions); }
-    addUser(user: User): Observable<any>{ return this.http.post<User>("" +"users/add", user, this.adminhttpOptions);}
     UpdateUser(idUser : any , user : User): Observable<any>{ return this.http.put<User>(environment.nawaUrl + "user/update/" + idUser , user , this.adminhttpOptions);}
     signup(user : any){return this.http.post(environment.nawaUrl+ "user/add" , user);}
     verifyuser(cin : any){return this.http.post(environment.nawaUrl + "user/verifyUser/" + cin, this.adminhttpOptions);}
@@ -33,4 +33,5 @@ import { environment } from 'src/environments/environment';
     resetpassword2(token:any,newpassword:any){
       this.httpOptions = { headers: new HttpHeaders({'Authorization': "Bearer " + token})}; 
       return this.http.get(environment.nawaUrl + "user/resetforgotpassword?token="+token+"&newpassword="+newpassword,this.httpOptions);}
+    updateimage(formData:any){ return this.http.post<User>(environment.nawaUrl+"user/changeimage",formData, this.adminhttpOptions)}
   }
