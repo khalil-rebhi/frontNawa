@@ -19,9 +19,9 @@ export class TestService {
  }
 
 
- public getpayementsByCredit( credit : Credit){
+ public getpayementsByCredit( credit : Credit) : Observable<Payement[]>{
 
-  return this.http.post('http://localhost:8089/nawa/pay/showPayementByCredit',credit) ;
+  return this.http.post<Payement[]>('http://localhost:8089/nawa/pay/showPayementByCredit',credit) ;
  }
 
  addProduct(payement : Payement) {
