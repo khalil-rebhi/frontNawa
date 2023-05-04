@@ -1,5 +1,5 @@
 export class BankAccount{
     idBankAccount: Number;
-    rib : String;
+    rib : string;
     balance : number;
 }

@@ -1,54 +1,6 @@
-<!-- <form (ngSubmit)="Pay(transfer,user)" #form ="ngForm"> 
-    <div class="form-group" >
-<label> senderAccountNumber</label>
-<input type ="text" class="form-control" name ="senderAccountNumber" [(ngModel)]="transfer.senderAccountNumber" required minlength="3" #senderAccountNumber = "ngModel">
-<div *ngIf="senderAccountNumber.touched && senderAccountNumber.invalid">
-<div class="alert alert-danger" *ngIf="senderAccountNumber.errors?.['required']" >title is not required</div>
-<div class="alert alert-danger" *ngIf="senderAccountNumber.errors?.['minlength']" >title is less than 3</div>
-</div>
-</div>
-
-        <div class="form-group" >
-        <label> receiverAccountNumber</label>
-        <input type ="text"  name ="price" class="form-control" [(ngModel)]="transfer.receiverAccountNumber"  required  #receiverAccountNumber="ngModel">
-        <div *ngIf="receiverAccountNumber.touched && receiverAccountNumber.invalid">
-            <div class="alert alert-danger" *ngIf="receiverAccountNumber.errors?.['required']" >receiverAccountNumber is not required</div>
-
-
-            <div class="alert alert-danger" *ngIf="receiverAccountNumber.errors?.['required']" >price is not required</div>
-            
-        </div>
-        </div>
-
-        <div class="form-group" >
-            <label> prix</label>
-            <input type ="text"  name ="price" class="form-control" [(ngModel)]="transfer.amount"  required  #amount="ngModel">
-            <div *ngIf="amount.touched && amount.invalid">
-                <div class="alert alert-danger" *ngIf="amount.errors?.['required']" >amount is not required</div>
-    
-    
-                
-                
-            </div>
-            </div>
-            
-                            <button class="btn btn-primary" type="submit"[disabled]="form.invalid" > ajouter</button>
-                        </form> -->
-
-
-
 <div *ngIf="notif" class="box error-box">
 <h4 style="color: white;"> Verifier les données saisies</h4>
 </div>
-
-
-<!-- <div *ngIf="!notif" class="box success-box">
-    <h4 style="color: white;"> paiement avec succés</h4>
-    </div> -->
-
-
-
-
 
                         <div id="sidebar-contact" class="span3 sidebar group">
                             <div class="widget-first widget contact-info"><h3>Contacts</h3>
@@ -92,9 +44,7 @@
 
     
     <div class="slogan">
-        <h2>SAY HELLO. PAY YOUR CREDIT</h2>
-
-        <h3>seriously.</h3>
+        <h2>PAY YOUR CREDIT</h2>
     </div>
 
 
@@ -121,12 +71,10 @@
 
                                                    
 
-
                 
                              <h6>Entrez votre numero de carte :</h6> <div class="input-prepend"><span class="add-on">
-                                                        <img src="./assets/images/contact-form/user.png" alt="" title="" /></span>
-                                                        <!-- <label> senderAccountNumber</label> -->
-                                                        <input type="text" name="yit_contact[name]" id="name-contact-form" class="with-icon required" value="" [(ngModel)]="transfer.senderAccountNumber" required minlength="3" #senderAccountNumber = "ngModel" />
+                                <i class="fa-solid fa-lock"></i></span>
+                                                        <input type="text" name="yit_contact[name]" id="name-contact-form" class="with-icon required" [(ngModel)]="transfer.senderAccountNumber" required minlength="3" #senderAccountNumber = "ngModel" disabled />
                                                         <div *ngIf="senderAccountNumber.touched && senderAccountNumber.invalid">
                                                             <div class="alert alert-danger" *ngIf="senderAccountNumber.errors?.['required']" >rib is not required</div>
                                                             <div class="alert alert-danger" *ngIf="senderAccountNumber.errors?.['minlength']" >rib is less than 20</div>
@@ -138,24 +86,6 @@
                                                     <div class="clear"></div>
                                                 </li>
                 
-                                                <li class="text-field with-icon span3">
-                
-                                                    <label for="email-contact-form" style="display: none;">
-                                                        <span class="mainlabel">receiver Account Number</span>
-                                                    </label>
-                    
-  <h6>Entrez Notre Rib (Nawa) :</h6>               <div class="input-prepend">
-                                                        <span class="add-on">
-                                                            <img src="./assets/images/contact-form/envelope.png" alt="" title="" />
-                                                        </span>
-                                                        <!-- <label> senderAccountNumber</label> -->
-                                                        <input type="text" name="yit_contact[email]" id="email-contact-form" class="with-icon required email-validate" value=""  [(ngModel)]="transfer.receiverAccountNumber"  required  #receiverAccountNumber="ngModel" />
-                                                    </div>
-                
-                                                    <div class="msg-error"></div>
-                
-                                                    <div class="clear"></div>
-                                                </li>
                 
                                                 <li class="text-field with-icon span3">
                 
@@ -165,9 +95,8 @@
                 
                                                     <h6>le Montant a payer  :</h6>  <div class="input-prepend">
                                                         <span class="add-on">
-                                                            <img src="./assets/images/contact-form/phone.png" alt="" title="" />
+                                                            <i class="fa-solid fa-money-bill"></i>
                                                         </span>
-                                                        <!-- <label> senderAccountNumber</label> -->
                                                         <input type="text" name="yit_contact[phone]" id="phone-contact-form" class="with-icon" value="" [(ngModel)]="transfer.amount"  required  #amount="ngModel" />
                                                     </div>
                 
@@ -175,26 +104,6 @@
                 
                                                     <div class="clear"></div>
                                                 </li>
-                
-                                                <!-- <li class="textarea-field with-icon span9">
-                
-                                                    <label for="message-contact-form">
-                                                        <span class="mainlabel">Message</span>
-                                                    </label>
-                
-                                                    <div class="input-prepend">
-                                                        <span class="add-on">
-                                                            <img src="images/contact-form/pencil.png" alt="" title="" />
-                                                        </span>
-                                                        <textarea name="yit_contact[message]" id="message-contact-form" rows="8" cols="30" class="with-icon required"></textarea>
-                                                    </div>
-                
-                                                    <div class="msg-error"></div>
-                
-                                                    <div class="clear"></div>
-                                                </li> -->
-                
-                                               
                                             </ul>
                                             
                                         </fieldset>

@@ -1,3 +1,4 @@
+import { BankAccount } from "./BankAccount";
 import { Role } from "./Role";
 
 export class User{
@@ -13,4 +14,5 @@ export class User{
     isEmployed : boolean;
     isVerified : boolean;
     role : Role ;
+    bankAccount : BankAccount;
 }

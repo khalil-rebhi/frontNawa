@@ -6,6 +6,9 @@ import { User } from 'src/app/core/model/User';
 import { NotifierService } from 'angular-notifier'
 import { HttpErrorResponse } from '@angular/common/http';
 import { PayCreditResponse } from 'src/app/inetfaces/pay-credit-response';
+import { UserService } from 'src/app/core/service/user.service';
+import { environment } from 'src/environments/environment';
+import { BankService } from 'src/app/core/service/bank.service';
 
 @Component({
   selector: 'app-pay-credit',
@@ -23,13 +26,16 @@ notif : boolean = false ;
 
 
 
-  constructor(private service:PayCreditService ,private router:Router,notifierService: NotifierService ) {
+  constructor(private service:PayCreditService ,private router:Router,notifierService: NotifierService, private bankAccountService: BankService ) {
     this.notifier = notifierService;
    }
 
   ngOnInit(): void {
     this.transfer = new TransferRequest();
-    
+    if (environment.userid) {
+      this.bankAccountService.getBankAccountByUser(environment.userid).subscribe(res => this.transfer.senderAccountNumber = res.rib);
+    }
+    this.transfer.receiverAccountNumber = 8822408467953682;
   }
 
   Pay(transfer: any,user:any){
@@ -58,6 +64,7 @@ setTimeout(() => { this.notif=false}, 5000);
           console.log('Server AAAA');
           // this.toastr.success('Hello world!', 'Toastr fun!');
           this.notifier.notify('succes','paiement avec succés');
+          this.router.navigateByUrl("/client/credits");
         }
       }
     );
