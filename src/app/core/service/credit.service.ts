@@ -26,4 +26,8 @@ export class CreditService {
   getOneCredit(idCredit : number): Observable<Credit>{
     return this.http.get<Credit>(`http://127.0.0.1:8089/nawa/credit/show/${idCredit}`)
   }
+
+  getCreditByUser(idUser:  string) : Observable<Credit[]>{
+    return this.http.get<Credit[]>(`http://127.0.0.1:8089/nawa/credit/show/user/${idUser}`);
+  }
 }

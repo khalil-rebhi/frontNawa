@@ -5,6 +5,7 @@ import { environment } from 'src/environments/environment';
 import { LoginService } from 'src/app/core/service/login.service';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import { UserService } from 'src/app/core/service/user.service';
 
 declare const google: any;
 
@@ -71,6 +72,7 @@ onLogin(form: NgForm) {
   else {
     this.loginservice.login(form.value).subscribe(
       (res: any) => {
+        UserService.user$ = res;
         LoginComponent.userloggedIn = true;
         console.log(res);
         this.initSession(res);
