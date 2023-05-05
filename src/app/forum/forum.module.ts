@@ -8,7 +8,7 @@ import {  HttpClientModule } from '@angular/common/http';
 import { BestForumComponent } from './best-forum/best-forum.component';
 import { AaddforumComponent } from './aaddforum/aaddforum.component';
 import { ForumService } from '../core/service/forum.service';
-
+import { MessageService } from 'primeng/api';
 @NgModule({
   declarations: [
     ForumComponent,
@@ -19,6 +19,6 @@ import { ForumService } from '../core/service/forum.service';
     CommonModule,
     ForumRoutingModule,FormsModule,HttpClientModule
   ],
-  providers:[ForumService]
+  providers:[ForumService,MessageService]
 })
 export class ForumModule { }

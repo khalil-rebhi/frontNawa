@@ -4,6 +4,11 @@ import { User } from 'src/app/core/model/User';
 import { BankService } from 'src/app/core/service/bank.service';
 import { UserService } from 'src/app/core/service/user.service';
 import { environment } from 'src/environments/environment';
+interface Country {
+  name: string;
+  currencyCode: string;
+  flagUrl: string;
+}
 
 @Component({
   selector: 'app-myaccount',
@@ -11,6 +16,18 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./myaccount.component.css']
 })
 export class MyaccountComponent implements OnInit {
+  countries: Country[] = [
+ { name: "United States", currencyCode: "USD", flagUrl: "https://flagcdn.com/40x30/us.png" },
+ { name: "United Kingdom", currencyCode: "GBP", flagUrl: "https://flagcdn.com/40x30/gb.png" },
+ { name: "Canada", currencyCode: "CAD", flagUrl: "https://flagcdn.com/40x30/ca.png" },
+ { name: "Australia", currencyCode: "AUD", flagUrl: "https://flagcdn.com/40x30/au.png" },
+ { name: "Japan", currencyCode: "JPY", flagUrl: "https://flagcdn.com/40x30/jp.png" },
+ { name: "Switzerland", currencyCode: "CHF", flagUrl: "https://flagcdn.com/40x30/ch.png" },
+ { name: "New Zealand", currencyCode: "NZD", flagUrl: "https://flagcdn.com/40x30/nz.png" },
+ { name: "South Africa", currencyCode: "ZAR", flagUrl: "https://flagcdn.com/40x30/za.png" },
+ { name: "India", currencyCode: "INR", flagUrl: "https://flagcdn.com/40x30/in.png" },
+ { name: "Eurozone", currencyCode: "EUR", flagUrl: "https://flagcdn.com/40x30/eu.png" },
+];
 
   data: any = []
   user: User;

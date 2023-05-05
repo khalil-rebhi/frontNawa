@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BankService } from 'src/app/core/service/bank.service';
 
+
 @Component({
   selector: 'app-allbank',
   templateUrl: './allbank.component.html',
@@ -21,6 +22,7 @@ data:any=[];
 
   deleteAc(id:any){
     this.sr.deletAcount(id).subscribe((res)=>{
+      
       console.log(res);
       this.getdata();
     })

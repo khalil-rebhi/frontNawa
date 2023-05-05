@@ -12,7 +12,9 @@
         </div>
     </div>
 
-    <button (click)="addForum()" class="btn btn-info">ajouter</button>
+    <div *ngIf="!showInp">
+        <button type="button" (click)="addForum()" class="btn btn-primary mb-3">Add Post</button>
+    </div>
     <button (click)="Tri()" class="btn btn-info">Tri</button>
     <hr>
     <div class="container ">
@@ -31,7 +33,7 @@
                             </div>
 
                         </div>
-                        <span class="badge rounded-pill bg-danger">{{x.score}}</span>
+                        <span class="badge rounded-pill bg-danger">{{x.likes}}</span>
 
                     </div>
                     <div class="post-description">
@@ -57,7 +59,8 @@
                                 <i class="fas fa-edit" style="color:rgba(62, 247, 16, 0.89)"></i>
                             </a>
 
-
+                            <button><a href="http://twitter.com/share?text={{x.text}}&url={{x.idPost}}&hashtags=hashtag1,hashtag2,hashtag3" target="_blank">Twitter</a>
+                            </button>
                         </div>
                     </div>
                     <div class="post-footer">

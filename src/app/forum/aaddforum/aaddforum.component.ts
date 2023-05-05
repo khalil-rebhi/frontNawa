@@ -35,7 +35,7 @@ export class AaddforumComponent implements OnInit {
 
   addForum() {
     let data: any = {
-      text: this.TextPost,
+      text:this.makeFine(this.TextPost),
       user: this.user
     }
     this.sr.addForum(data).subscribe((res) => {
@@ -43,7 +43,29 @@ export class AaddforumComponent implements OnInit {
       console.log(res);
     })
   }
-
+  makeFine(val: string): string {
+    let badWords = ["putin", "shit", "merde", "shitty", "fuck", "motherlucker"];
+  
+    let splited = val.split(/\s+/); // split by whitespace
+    let newval = "";
+    for (let word of splited) {
+      let stars = "";
+      for (let bad of badWords) {
+        if (word.toLowerCase() === bad.toLowerCase()) {
+          for (let i = 0; i <= word.length - 1; i++) {
+            stars += "*";
+          }
+          newval += stars + " ";
+          break;
+        }
+      }
+      if (stars === "") {
+        newval += word + " ";
+      }
+    }
+    return newval.trim();
+  }
+  
   getPost() {
     this.sr.getPost().subscribe((res) => {
       this.data = res;

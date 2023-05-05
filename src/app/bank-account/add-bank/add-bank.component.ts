@@ -1,5 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+
+import { MessageService } from 'primeng/api';
 import { BankService } from 'src/app/core/service/bank.service';
+interface Country {
+  name: string;
+  currencyCode: string;
+  flag: string;
+}
 
 @Component({
   selector: 'app-add-bank',
@@ -7,11 +14,11 @@ import { BankService } from 'src/app/core/service/bank.service';
   styleUrls: ['./add-bank.component.css']
 })
 export class AddBankComponent implements OnInit {
-
+  
   RiB!:Number;
   Balance!:Number;
   user: any = {
-    "idUser": 1,
+    "idUser": 5,
     "lastName": "client",
     "firstName": "client",
     "cin": 123456,
@@ -23,7 +30,15 @@ export class AddBankComponent implements OnInit {
     "role": "CLIENT",
     "account": null
   };
-  constructor(private sr:BankService) { }
+  constructor(private sr:BankService,  private messageService: MessageService) { }
+  showResponse(event:any) {
+    this.messageService.add({
+        severity: 'info',
+        summary: 'Succees',
+        detail: 'User Responded',
+        sticky: true,
+    });
+}
 
   addBank(){
     let data:any={
