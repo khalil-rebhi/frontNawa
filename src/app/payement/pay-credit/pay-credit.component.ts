@@ -22,6 +22,7 @@ private readonly notifier: NotifierService;
 response:PayCreditResponse ;
 
 notif : boolean = false ;
+wait : boolean = false;
 
 
 
@@ -40,8 +41,10 @@ notif : boolean = false ;
 
   Pay(transfer: any,user:any){
    // if (
+     this.wait = true;
     this.service.payCredit(transfer,user).subscribe(
       (response: any) => {
+
         // handle success response
         console.log(response.message);
       },
@@ -63,9 +66,8 @@ setTimeout(() => { this.notif=false}, 5000);
         } else {
           console.log('Server AAAA');
           // this.toastr.success('Hello world!', 'Toastr fun!');
-          
           this.notifier.notify('succes','paiement avec succés');
-        setTimeout(() => {this.router.navigateByUrl("/client/credits");}, 5000);
+        setTimeout(() => {this.router.navigateByUrl("/client/credits"); this.wait = false;}, 5000);
         }
       }
     );

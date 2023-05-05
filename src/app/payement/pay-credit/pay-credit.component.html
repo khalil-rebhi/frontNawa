@@ -107,7 +107,12 @@
                                             </ul>
                                             
                                         </fieldset>
-                                        <button class="btn btn-primary btn-lg btn-block" style="background-color: blue; color: white;" type="submit"[disabled]="form.invalid" > Payer</button>
+                                        <button class="btn btn-primary btn-lg btn-block" style="background-color: blue; color: white;" type="submit"[disabled]="form.invalid || wait" > Payer</button>
+                                        <div  *ngIf="wait" class="spinner-container">
+                                            <div class="spinner">
+                                            </div>
+                                            Please wait ...
+                                        </div>
                                     </form>
                                     
 

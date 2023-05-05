@@ -3,3 +3,24 @@
   color: #ffffff;
   font-weight: bold;
 }
+
+.spinner {
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  border-top-color: #333;
+  border-radius: 50%;
+  width: 1.5em;
+  height: 1.5em;
+  animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.spinner-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
