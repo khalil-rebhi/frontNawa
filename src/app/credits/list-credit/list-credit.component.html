@@ -4,7 +4,8 @@
         <div class="col-12">
           <div class="card">
             <div class="card-body">
-              <h4 class="card-title">Credits</h4>
+              <h4 class="card-title" *ngIf="isAdmin">Credits</h4>
+              <div class="card-title" style="margin-left: 75rem;margin-bottom: 2rem;" *ngIf="!isAdmin"><button routerLink="/client/credits/simulate" class="btn btn-info">Simulate a loan!</button></div>
               <div class="table-responsive">
                 <div
                   id="DataTables_Table_0_wrapper"
@@ -114,15 +115,20 @@
                                 <span *ngIf="credit.isPayed"><i class="fa-solid fa-check fa-xl" style="color:green"></i></span>
                                 <span *ngIf="!credit.isPayed"><i class="fa-solid fa-spinner fa-spin"></i></span>
                             </td>
-                            <td class="group-btn" *ngIf="credit.creditStartDate">
+                            <td class="group-btn" *ngIf="credit.creditStartDate && isAdmin">
                                 <a routerLink="/admin/payments/listPayment/{{credit.idCredit}}" class="btn btn-outline-success"><i class="fa-solid fa-list-check"></i></a>
                                 <a routerLink="details/{{credit.idCredit}}"  class="btn btn-outline-warning"><i class="fa-solid fa-circle-info"></i></a>
                                 <button (click)="delete(credit)"  class="btn btn-outline-danger"><i class="fa-solid fa-trash"></i></button>
                             </td>
-                            <td class="group-btn" *ngIf="!credit.creditStartDate">
+                            <td class="group-btn" *ngIf="!credit.creditStartDate && isAdmin">
                               <a routerLink="/admin/payments/listPayment/{{credit.idCredit}}" class="btn btn-outline-success"><i class="fa-solid fa-list-check"></i></a>
                               <a routerLink="details/{{credit.idCredit}}"  class="btn btn-outline-warning"><i class="fa-solid fa-circle-info"></i></a>
                               <button (click)="delete(credit)"  class="btn btn-outline-danger"><i class="fa-solid fa-trash"></i></button>
+                            </td>
+                            <td class="group-btn" *ngIf="credit.creditStartDate && !isAdmin">
+                              <a *ngIf="!creditPayment || creditPayment != credit" (click)="showPayments(credit)" class="btn btn-outline-success"><i class="fa-solid fa-circle-info"></i></a>
+                              <a *ngIf="creditPayment && creditPayment == credit" (click)="hidePayments()" class="btn btn-outline-success"><i class="fa-solid fa-minus"></i></a>
+                              <button routerLink="/client/payement/payCredit"  class="btn btn-outline-warning" [disabled]="credit.isPayed"><i class="fa-solid fa-money-bill"></i></button>
                             </td>
                           </tr>
                         </tbody>
@@ -135,6 +141,9 @@
           </div>
         </div>
       </div>
+    </div>
+    <div *ngIf="creditPayment && !isAdmin">
+      <app-payements-by-credit [credit]="creditPayment"></app-payements-by-credit>
     </div>
     
     

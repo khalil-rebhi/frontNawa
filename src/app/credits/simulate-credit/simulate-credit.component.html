@@ -110,7 +110,7 @@
 
 
                 
-                                                    Montant :       <div class="input-prepend"><span class="add-on">
+                                                <h6>Montant :</h6>           <div class="input-prepend"><span class="add-on">
                                                         
 
                                                         <img src="./assets/images/contact-form/user.png" alt="" title="" /></span>
@@ -133,7 +133,7 @@
                                                         <span class="mainlabel">taux</span>
                                                     </label>
                     
-                                                 Taux annuel :   <div class="input-prepend">
+                                               <h6>Taux annuel : </h6>    <div class="input-prepend">
                                                         <span class="add-on">
                                                             <img src="./assets/images/contact-form/envelope.png" alt="" title="" />
                                                         </span>
@@ -152,7 +152,7 @@
                                                         <span class="mainlabel">duréé</span>
                                                     </label>
                 
-                                           Durée    :     <div class="input-prepend">
+                                        <h6>Durée : </h6>       <div class="input-prepend">
                                                         <span class="add-on">
                                                             <img src="./assets/images/contact-form/phone.png" alt="" title="" />
                                                         </span>
@@ -187,7 +187,7 @@
                                             </ul>
                                             
                                         </fieldset>
-                                        <button class="btn class-primary" type="submit"[disabled]="form.invalid" > Simuler</button>
+                                        <button class="btn btn-primary btn-lg btn-block" style="background-color: blue; color: white;" type="submit"[disabled]="form.invalid" > Simuler</button>
                                     </form>
                                     <br> <br>
 
@@ -236,10 +236,11 @@
                                                     
                                                     <td>{{ payment.id }}</td>
                                                     <td>{{ payment.monthlyPayment }}</td>
+                                                    <td>{{ payment.interestPayment }}</td>
                                                     <td>{{ payment.principal }}</td>
                                                     <td>{{ payment.amount }}</td>
                                                     <!-- <td><i class="yit-sc-tick icon-ok" style="color: #23b10b; font-size: 18px;"></i></td> -->
-                                                    <td>-</td>
+                                                    
                                                 </tr>
         
                                                

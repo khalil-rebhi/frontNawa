@@ -1,5 +1,5 @@
 export class TransferRequest{
-    senderAccountNumber : number;
+    senderAccountNumber : string;
     receiverAccountNumber : number;
     amount : number;
 }

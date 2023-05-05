@@ -10,6 +10,7 @@ import { environment } from 'src/environments/environment';
 })
 
   export class UserService {
+    static user$ : User;
     adminhttpOptions;
     httpOptions : any;
     user : User ;
